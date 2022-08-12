@@ -110,65 +110,14 @@
     <p>For some people the term “enterprise application” implies a large system. However, it’s important to remember that not all enterprise applications are large, even though they can provide a lot of value to the enterprise. Many people assume that, since small systems aren’t large, they aren’t worth bothering with, and to some degree there’s merit here. If a small system fails, it usually makes less noise than a big system. Still, I think such thinking tends to shortchange the cumulative effect of many small projects. If you can do things that improve small projects, then that cumulative effect can be very significant on an enterprise, particularly since small projects often have disproportionate value. Indeed, one of the best things you can do is turn a large project into a small one by simplifying its architecture and process.</p>
     <h3>Kinds of Enterprise Application</h3> 
     <p>When we discuss how to design enterprise applications, and what patterns to use, it’s important to realize that enterprise applications are all different and that different problems lead to different ways of doing things. I have a set of alarm bells that go off when people say, “Always do this.” For me much of the challenge (and interest) in design is in knowing about alternatives and judging the trade-offs of using one alternative over another. There is a large space of alternatives to choose from, but here I’ll pick three points on this very big plane.</p>
-    <p>Consider a B2C (business to customer) online retailer: People browse and—
-            with luck and a shopping cart—buy. For such a system we need to be able to
-            handle a very high volume of users, so our solution needs to be not only reasonably efficient in terms of resources used but also scalable so that you can increase
-            the load by adding more hardware. The domain logic for such an application
-            can be pretty straightforward: order capturing, some relatively simple pricing
-            and shipping calculations, and shipment notification. We want anyone to be able
-            access the system easily, so that implies a pretty generic Web presentation that
-            can be used with the widest possible range of browsers. Data source includes a
-            database for holding orders and perhaps some communication with an inventory system to help with availability and delivery information.
-            Contrast this with a system that automates the processing of leasing agreements. In some ways this is a much simpler system than the B2C retailer’s
-            because there are many fewer users—no more than a hundred or so at one time.
-            Where it’s more complicated is in the business logic. Calculating monthly bills
-            on a lease, handling events such as early returns and late payments, and validating data as a lease is booked are all complicated tasks, since much of the leasing
-            industry’s competition comes in the form of little variations over deals done in
-            the past. A complex business domain such as this is challenging because the
-            rules are so arbitrary.
-            Such a system also has more complexity in the user interface (UI). At the
-            least this means a much more involved HTML interface with more, and more
-            complex, screens. Often these systems have UI demands that lead users to want
-            a more sophisticated presentation than a HTML front end allows, so a more
-            conventional rich-client interface is needed. A more complex user interaction
-            also leads to more complicated transaction behavior: Booking a lease may take
-            an hour or two, during which time the user is in a logical transaction.We also
-            see a complex database schema with perhaps two hundred tables and connections to packages for asset valuation and pricing.
-            A third example point is a simple expense-tracking system for a small company. Such a system has few users and simple logic and can easily be made
-            accessible across the company with an HTML presentation. The only data
-            source is a few tables in a database. As simple as it is, a system like this is not
-            devoid of a challenge. You have to build it very quickly and you have to bear in
-            mind that it may grow as people want to calculate reimbursement checks, feed
-            them into the payroll system, understand tax implications, provide reports for
-            the CFO, tie into airline reservation Web services, and so on. Trying to use the
-            architecture for either of the other two example systems will slow down the
-            development of this one. If a system has business benefits (as all enterprise
-            applications should), delaying those benefits costs money. However, you don’t
-            want to make decisions now that will hamper future growth. But if you add
-            flexibility now and get it wrong, the complexity added for flexibility’s sake may
-            actually make it harder to evolve in the future and may delay deployment and
-            thus delay the benefit. Although such systems may be small, most enterprises
-            have a lot of them so the cumulative effect of an inappropriate architecture can
-            be significant.
-            Each of these three enterprise application examples has difficulties, and they
-            are different difficulties. As a result you can’t come up with a single architecture
-            that will be right for all three. Choosing an architecture means that you have to
-            understand the particular problems of your system and choose an appropriate
-            design based on that understanding. That’s why in this book I don’t give a single solution for your enterprise needs. Instead, many of the patterns are about
-            choices and alternatives. Even when you choose a particular pattern, you’ll
-            have to modify it to meet your demands. You can’t build enterprise software
-            without thinking, and all any book can do is give you more information to base
-            your decisions on.
-            If this applies to patterns, it also applies to tools. Although it obviously
-            makes sense to pick as small a set of tools as you can to develop applications,
-            you also have to recognize that different tools are best for different purposes.
-            Beware of using a tool that is really suited for a different kind of application—it
-            may hinder more than help.</p>
+    <p>Consider a B2C (business to customer) online retailer: People browse and with luck and a shopping cart—buy. For such a system we need to be able to handle a very high volume of users, so our solution needs to be not only reasonably efficient in terms of resources used but also scalable so that you can increase the load by adding more hardware. The domain logic for such an application can be pretty straightforward: order capturing, some relatively simple pricing and shipping calculations, and shipment notification. We want anyone to be able access the system easily, so that implies a pretty generic Web presentation that can be used with the widest possible range of browsers. Data source includes a database for holding orders and perhaps some communication with an inventory system to help with availability and delivery information. Contrast this with a system that automates the processing of leasing agreements. In some ways this is a much simpler system than the B2C retailer’s because there are many fewer users—no more than a hundred or so at one time.</p>
+    <p>Where it’s more complicated is in the business logic. Calculating monthly bills on a lease, handling events such as early returns and late payments, and validating data as a lease is booked are all complicated tasks, since much of the leasing industry’s competition comes in the form of little variations over deals done in the past. A complex business domain such as this is challenging because the rules are so arbitrary.</p>
+    <p>Such a system also has more complexity in the user interface (UI). At the least this means a much more involved HTML interface with more, and more complex, screens. Often these systems have UI demands that lead users to want a more sophisticated presentation than a HTML front end allows, so a more conventional rich-client interface is needed. A more complex user interaction also leads to more complicated transaction behavior: Booking a lease may take an hour or two, during which time the user is in a logical transaction.We also see a complex database schema with perhaps two hundred tables and connections to packages for asset valuation and pricing.</p>
+    <p>A third example point is a simple expense-tracking system for a small company. Such a system has few users and simple logic and can easily be made accessible across the company with an HTML presentation. The only data source is a few tables in a database. As simple as it is, a system like this is not devoid of a challenge. You have to build it very quickly and you have to bear in mind that it may grow as people want to calculate reimbursement checks, feed them into the payroll system, understand tax implications, provide reports for the CFO, tie into airline reservation Web services, and so on. Trying to use the architecture for either of the other two example systems will slow down the development of this one. If a system has business benefits (as all enterprise applications should), delaying those benefits costs money. However, you don’t want to make decisions now that will hamper future growth. But if you add flexibility now and get it wrong, the complexity added for flexibility’s sake may actually make it harder to evolve in the future and may delay deployment and thus delay the benefit. Although such systems may be small, most enterprises have a lot of them so the cumulative effect of an inappropriate architecture can be significant.</p>
+    <p>Each of these three enterprise application examples has difficulties, and they are different difficulties. As a result you can’t come up with a single architecture that will be right for all three. Choosing an architecture means that you have to understand the particular problems of your system and choose an appropriate design based on that understanding. That’s why in this book I don’t give a single solution for your enterprise needs. Instead, many of the patterns are about choices and alternatives. Even when you choose a particular pattern, you’ll have to modify it to meet your demands. You can’t build enterprise software without thinking, and all any book can do is give you more information to base your decisions on.</p>
+    <p>If this applies to patterns, it also applies to tools. Although it obviously makes sense to pick as small a set of tools as you can to develop applications, you also have to recognize that different tools are best for different purposes. Beware of using a tool that is really suited for a different kind of application it may hinder more than help.</p>
     <h3>Thinking About Performance</h3>
-    <p>Many architectural decisions are about performance. For most performance
-            issues I prefer to get a system up and running, instrument it, and then use a disciplined optimization process based on measurement. However, some architectural decisions affect performance in a way that’s difficult to fix with later
-            optimization. And even when it is easy to fix, people involved in the project
-            worry about these decisions early.</p>
+    <p>Many architectural decisions are about performance. For most performance issues I prefer to get a system up and running, instrument it, and then use a disciplined optimization process based on measurement. However, some architectural decisions affect performance in a way that’s difficult to fix with later optimization. And even when it is easy to fix, people involved in the project worry about these decisions early.</p>
     <p>It’s always difficult to talk about performance in a book such as this. The
             reason that it’s so difficult is that any advice about performance should not be
             treated as fact until it’s measured on your configuration. Too often I’ve seen
