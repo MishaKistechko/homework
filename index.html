@@ -115,153 +115,28 @@
     <p>Each of these three enterprise application examples has difficulties, and they are different difficulties. As a result you can’t come up with a single architecture that will be right for all three. Choosing an architecture means that you have to understand the particular problems of your system and choose an appropriate design based on that understanding. That’s why in this book I don’t give a single solution for your enterprise needs. Instead, many of the patterns are about choices and alternatives. Even when you choose a particular pattern, you’ll have to modify it to meet your demands. You can’t build enterprise software without thinking, and all any book can do is give you more information to base your decisions on.</p>
     <p>If this applies to patterns, it also applies to tools. Although it obviously makes sense to pick as small a set of tools as you can to develop applications, you also have to recognize that different tools are best for different purposes. Beware of using a tool that is really suited for a different kind of application it may hinder more than help.</p>
     <h3>Thinking About Performance</h3>
-    <p>Many architectural decisions are about performance. For most performance
-            issues I prefer to get a system up and running, instrument it, and then use a disciplined optimization process based on measurement. However, some architectural decisions affect performance in a way that’s difficult to fix with later
-            optimization. And even when it is easy to fix, people involved in the project
-            worry about these decisions early.
-            It’s always difficult to talk about performance in a book such as this. The
-            reason that it’s so difficult is that any advice about performance should not be
-            treated as fact until it’s measured on your configuration. Too often I’ve seen
-            designs used or rejected because of performance considerations, which turn out
-            to be bogus once somebody actually does some measurements on the real setup
-            used for the application.
-            I give a few guidelines in this book, including minimizing remote calls,
-            which has been good performance advice for quite a while. Even so, you
-            should verify every tip by measuring on your application. Similarly there are
-            several occasions where code examples in this book sacrifice performance for
-            understandability. Again it’s up to you to apply the optimizations for your
-            environment. Whenever you do a performance optimization, however, you
-            must measure both before and after, otherwise, you may just be making your
-            code harder to read.
-            There’s an important corollary to this: A significant change in configuration
-            may invalidate any facts about performance. Thus, if you upgrade to a new version of your virtual machine, hardware, database, or almost anything else, you
-            must redo your performance optimizations and make sure they’re still helping.
-            In many cases a new configuration can change things. Indeed, you may find that
-            an optimization you did in the past to improve performance actually hurts performance in the new environment.
-            Another problem with talking about performance is the fact that many terms
-            are used in an inconsistent way. The most noted victim of this is “scalability,”
-            which is regularly used to mean half a dozen different things. Here are the
-            terms I use.
-            <b>Response time</b> is the amount of time it takes for the system to process a
-            request from the outside. This may be a UI action, such as pressing a button, or
-            a server API call.
-            <b>Responsiveness</b> is about how quickly the system acknowledges a request as
-            opposed to processing it. This is important in many systems because users may
-            become frustrated if a system has low responsiveness, even if its response time is
-            good. If your system waits during the whole request, then your responsiveness
-            and response time are the same. However, if you indicate that you’ve received
-            the request before you complete, then your responsiveness is better. Providing a
-            progress bar during a file copy improves the responsiveness of your user interface, even though it doesn’t improve response time.
-            8 INTRODUCTION
-            <b>Latency</b> is the minimum time required to get any form of response, even if
-            the work to be done is nonexistent. It’s usually the big issue in remote systems.
-            If I ask a program to do nothing, but to tell me when it’s done doing nothing,
-            then I should get an almost instantaneous response if the program runs on my
-            laptop. However, if the program runs on a remote computer, I may get a few
-            seconds just because of the time taken for the request and response to make
-            their way across the wire. As an application developer, I can usually do nothing to improve latency. Latency is also the reason why you should minimize
-            remote calls.
-            <b>Throughput</b> is how much stuff you can do in a given amount of time. If
-            you’re timing the copying of a file, throughput might be measured in bytes per
-            second. For enterprise applications a typical measure is transactions per second
-            (tps), but the problem is that this depends on the complexity of your transaction. For your particular system you should pick a common set of transactions.
-            In this terminology <b>performance</b> is either throughput or response time—
-            whichever matters more to you. It can sometimes be difficult to talk about performance when a technique improves throughput but decreases response time,
-            so it’s best to use the more precise term. From a user’s perspective responsiveness may be more important than response time, so improving responsiveness
-            at a cost of response time or throughput will increase performance.
-            <b>Load</b> is a statement of how much stress a system is under, which might be
-            measured in how many users are currently connected to it. The load is usually a
-            context for some other measurement, such as a response time. Thus, you may
-            say that the response time for some request is 0.5 seconds with 10 users and 2
-            seconds with 20 users.
-            <b>Load sensitivity</b> is an expression of how the response time varies with the
-            load. Let’s say that system A has a response time of 0.5 seconds for 10 through
-            20 users and system B has a response time of 0.2 seconds for 10 users that rises
-            to 2 seconds for 20 users. In this case system A has a lower load sensitivity than
-            system B. We might also use the term degradation to say that system B degrades
-            more than system A.
-            <b>Efficiency</b> is performance divided by resources. A system that gets 30 tps on
-            two CPUs is more efficient than a system that gets 40 tps on four identical
-            CPUs.
-            <b>The capacity</b> of a system is an indication of maximum effective throughput
-            or load. This might be an absolute maximum or a point at which the performance dips below an acceptable threshold.
-            <b>Scalability</b> is a measure of how adding resources (usually hardware) affects
-            performance. A scalable system is one that allows you to add hardware and get
-            a commensurate performance improvement, such as doubling how many servers you have to double your throughput. Vertical scalability, or scaling up,
-            means adding more power to a single server, such as more memory. Horizontal
-            scalability, or scaling out, means adding more servers. 
-            The problem here is that design decisions don’t affect all of these performance factors equally. Say we have two software systems running on a server:
-            Swordfish’s capacity is 20 tps while Camel’s capacity is 40 tps. Which has better
-            performance? Which is more scalable? We can’t answer the scalability question
-            from this data, and we can only say that Camel is more efficient on a single
-            server. If we add another server, we notice that Swordfish now handles 35 tps
-            and Camel handles 50 tps. Camel’s capacity is still better, but Swordfish looks
-            like it may scale out better. If we continue adding servers we’ll discover that
-            Swordfish gets 15 tps per extra server and Camel gets 10. Given this data we
-            can say that Swordfish has better horizontal scalability, even though Camel is
-            more efficient for less than five servers. 
-            When building enterprise systems, it often makes sense to build for hardware
-            scalability rather than capacity or even efficiency. Scalability gives you the
-            option of better performance if you need it. Scalability can also be easier to do.
-            Often designers do complicated things that improve the capacity on a particular
-            hardware platform when it might actually be cheaper to buy more hardware. If
-            Camel has a greater cost than Swordfish, and that greater cost is equivalent to a
-            couple of servers, then Swordfish ends up being cheaper even if you only need
-            40 tps. It’s fashionable to complain about having to rely on better hardware to
-            make our software run properly, and I join this choir whenever I have to
-            upgrade my laptop just to handle the latest version of Word. But newer hardware is often cheaper than making software run on less powerful systems. Similarly, adding more servers is often cheaper than adding more programmers—
-            providing that a system is scalable.</p>
+    <p>Many architectural decisions are about performance. For most performance issues I prefer to get a system up and running, instrument it, and then use a disciplined optimization process based on measurement. However, some architectural decisions affect performance in a way that’s difficult to fix with later optimization. And even when it is easy to fix, people involved in the project worry about these decisions early.</p>
+    <p>It’s always difficult to talk about performance in a book such as this. The reason that it’s so difficult is that any advice about performance should not be treated as fact until it’s measured on your configuration. Too often I’ve seen designs used or rejected because of performance considerations, which turn out to be bogus once somebody actually does some measurements on the real setup used for the application.</p>
+    <p>I give a few guidelines in this book, including minimizing remote calls, which has been good performance advice for quite a while. Even so, you should verify every tip by measuring on your application. Similarly there are several occasions where code examples in this book sacrifice performance for understandability. Again it’s up to you to apply the optimizations for your environment. Whenever you do a performance optimization, however, you must measure both before and after, otherwise, you may just be making your code harder to read.</p>
+    <p>There’s an important corollary to this: A significant change in configuration may invalidate any facts about performance. Thus, if you upgrade to a new version of your virtual machine, hardware, database, or almost anything else, you must redo your performance optimizations and make sure they’re still helping. In many cases a new configuration can change things. Indeed, you may find that an optimization you did in the past to improve performance actually hurts performance in the new environment. Another problem with talking about performance is the fact that many terms are used in an inconsistent way. The most noted victim of this is “scalability,” which is regularly used to mean half a dozen different things. Here are the terms I use.</p>
+    <p><b>Response time</b> is the amount of time it takes for the system to process a request from the outside. This may be a UI action, such as pressing a button, or a server API call.</p>
+    <p><b>Responsiveness</b> is about how quickly the system acknowledges a request as opposed to processing it. This is important in many systems because users may become frustrated if a system has low responsiveness, even if its response time is good. If your system waits during the whole request, then your responsiveness and response time are the same. However, if you indicate that you’ve received the request before you complete, then your responsiveness is better. Providing a progress bar during a file copy improves the responsiveness of your user interface, even though it doesn’t improve response time.</p>
+    <p><b>Latency</b> is the minimum time required to get any form of response, even if the work to be done is nonexistent. It’s usually the big issue in remote systems. If I ask a program to do nothing, but to tell me when it’s done doing nothing, then I should get an almost instantaneous response if the program runs on my laptop. However, if the program runs on a remote computer, I may get a few seconds just because of the time taken for the request and response to make their way across the wire. As an application developer, I can usually do nothing to improve latency. Latency is also the reason why you should minimize remote calls.</p>
+    <p><b>Throughput</b> is how much stuff you can do in a given amount of time. If you’re timing the copying of a file, throughput might be measured in bytes per second. For enterprise applications a typical measure is transactions per second (tps), but the problem is that this depends on the complexity of your transaction. For your particular system you should pick a common set of transactions. In this terminology <b>performance</b> is either throughput or response time whichever matters more to you. It can sometimes be difficult to talk about performance when a technique improves throughput but decreases response time, so it’s best to use the more precise term. From a user’s perspective responsiveness may be more important than response time, so improving responsiveness at a cost of response time or throughput will increase performance. <b>Load</b> is a statement of how much stress a system is under, which might be measured in how many users are currently connected to it. The load is usually a context for some other measurement, such as a response time. Thus, you may say that the response time for some request is 0.5 seconds with 10 users and 2 seconds with 20 users.</p>
+    <p><b>Load sensitivity</b> is an expression of how the response time varies with the load. Let’s say that system A has a response time of 0.5 seconds for 10 through 20 users and system B has a response time of 0.2 seconds for 10 users that rises to 2 seconds for 20 users. In this case system A has a lower load sensitivity than system B. We might also use the term degradation to say that system B degrades more than system A.</p>
+    <p><b>Efficiency</b> is performance divided by resources. A system that gets 30 tps on two CPUs is more efficient than a system that gets 40 tps on four identical CPUs.</p>
+    <p><b>The capacity</b> of a system is an indication of maximum effective throughput or load. This might be an absolute maximum or a point at which the performance dips below an acceptable threshold. <b>Scalability</b> is a measure of how adding resources (usually hardware) affects performance. A scalable system is one that allows you to add hardware and get a commensurate performance improvement, such as doubling how many servers you have to double your throughput. Vertical scalability, or scaling up, means adding more power to a single server, such as more memory. Horizontal scalability, or scaling out, means adding more servers.</p> 
+    <p>The problem here is that design decisions don’t affect all of these performance factors equally. Say we have two software systems running on a server: Swordfish’s capacity is 20 tps while Camel’s capacity is 40 tps. Which has better performance? Which is more scalable? We can’t answer the scalability question from this data, and we can only say that Camel is more efficient on a single server. If we add another server, we notice that Swordfish now handles 35 tps and Camel handles 50 tps. Camel’s capacity is still better, but Swordfish looks like it may scale out better. If we continue adding servers we’ll discover that Swordfish gets 15 tps per extra server and Camel gets 10. Given this data we can say that Swordfish has better horizontal scalability, even though Camel is more efficient for less than five servers.</p> 
+    <p>When building enterprise systems, it often makes sense to build for hardware scalability rather than capacity or even efficiency. Scalability gives you the option of better performance if you need it. Scalability can also be easier to do. Often designers do complicated things that improve the capacity on a particular hardware platform when it might actually be cheaper to buy more hardware. If Camel has a greater cost than Swordfish, and that greater cost is equivalent to a couple of servers, then Swordfish ends up being cheaper even if you only need 40 tps. It’s fashionable to complain about having to rely on better hardware to make our software run properly, and I join this choir whenever I have to upgrade my laptop just to handle the latest version of Word. But newer hardware is often cheaper than making software run on less powerful systems. Similarly, adding more servers is often cheaper than adding more programmers providing that a system is scalable.</p>
     <h3>Patterns</h3>
-    <p>Patterns have been around for a long time, so part of me doesn’t want to regurgitate their history yet another time. Still, this is an opportunity for me to provide my view of patterns and what makes them a worthwhile approach to
-            describing design. 
-            There’s no generally accepted definition of a pattern, but perhaps the best
-            place to start is Christopher Alexander, an inspiration for many pattern enthusiasts: “Each pattern describes a problem which occurs over and over again in
-            our environment, and then describes the core of the solution to that problem, in
-            such a way that you can use this solution a million times over, without ever
-            doing it the same way twice” [Alexander et al.]. Alexander is an architect, so he
-            was talking about buildings, but the definition works pretty nicely for software
-            as well. The focus of the pattern is a particular solution, one that’s both common and effective in dealing with one or more recurring problems. Another
-            way of looking at it is that a pattern is a chunk of advice and the art of creating
-            patterns is to divide up many pieces of advice into relatively independent
-            chunks so that you can refer to them and discuss them more or less separately.
-            A key part of patterns is that they’re rooted in practice. You find patterns by
-            looking at what people do, observing things that work, and then looking for the
-            “core of the solution.” It isn’t an easy process, but once you’ve found some
-            good patterns they become a valuable thing. For me their value lies in being
-            able to create a book that serves as a reference. You don’t need to read all of
-            this book, or all of any patterns book, to find it useful. You just need to read
-            enough to have a sense of what the patterns are, what problems they solve, and
-            how they solve them. You don’t need to know all the details but just enough so
-            that if you run into one of the problems you can find the pattern in the book.
-            Only then do you need to really understand the pattern in depth.
-            Once you need the pattern, you have to figure out how to apply it to your
-            circumstances. A key thing about patterns is that you can never just apply the
-            solution blindly, which is why pattern tools have been such miserable failures. I
-            like to say that patterns are “half baked,” meaning that you always have to finish them off in the oven of your own project. Every time I use a pattern I tweak
-            it a little here and a little there. You see the same solution many times over, but
-            it’s never exactly the same.</p>
+    <p>Patterns have been around for a long time, so part of me doesn’t want to regurgitate their history yet another time. Still, this is an opportunity for me to provide my view of patterns and what makes them a worthwhile approach to describing design.</p> 
+    <p>There’s no generally accepted definition of a pattern, but perhaps the best place to start is Christopher Alexander, an inspiration for many pattern enthusiasts: “Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice” [Alexander et al.]. Alexander is an architect, so he was talking about buildings, but the definition works pretty nicely for software as well. The focus of the pattern is a particular solution, one that’s both common and effective in dealing with one or more recurring problems. Another way of looking at it is that a pattern is a chunk of advice and the art of creating patterns is to divide up many pieces of advice into relatively independent chunks so that you can refer to them and discuss them more or less separately.</p>
+    <p>A key part of patterns is that they’re rooted in practice. You find patterns by looking at what people do, observing things that work, and then looking for the “core of the solution.” It isn’t an easy process, but once you’ve found some good patterns they become a valuable thing. For me their value lies in being able to create a book that serves as a reference. You don’t need to read all of this book, or all of any patterns book, to find it useful. You just need to read enough to have a sense of what the patterns are, what problems they solve, and how they solve them. You don’t need to know all the details but just enough so that if you run into one of the problems you can find the pattern in the book. Only then do you need to really understand the pattern in depth.</p>
+    <p>Once you need the pattern, you have to figure out how to apply it to your circumstances. A key thing about patterns is that you can never just apply the solution blindly, which is why pattern tools have been such miserable failures. I like to say that patterns are “half baked,” meaning that you always have to finish them off in the oven of your own project. Every time I use a pattern I tweak it a little here and a little there. You see the same solution many times over, but it’s never exactly the same.</p>
     <p>Each pattern is relatively independent, but patterns aren’t isolated from each
-            other. Often one pattern leads to another or one occurs only if another is
-            around. Thus, you’ll usually only see <i>Class Table Inheritance</i> (285) if there’s a
-            <i>Domain Model</i> (116) in your design. The boundaries between the patterns are
-            naturally fuzzy, but I’ve tried to make each pattern as self-standing as I can. If
-            someone says “Use a <i>Unit of Work</i> (184),” you can look it up and see how to
-            apply it without having to read the entire book.
-            If you’re an experienced designer of enterprise applications, you’ll probably
-            find that most of these patterns are familiar to you. I hope you won’t be too disappointed (I did try to warn you in the Preface). Patterns aren’t original ideas;
-            they’re very much observations of what happens in the field. As a result, we
-            pattern authors don’t say we “invented” a pattern but rather that we “discovered” one. Our role is to note the common solution, look for its core, and then
-            write down the resulting pattern. For an experienced designer, the value of the
-            pattern is not that it gives you a new idea; the value lies in helping you commu-
-            nicate your idea. If you and your colleagues all know what a <i>Remote Facade</i>
-            (388) is, you can communicate a lot by saying, “This class is a <i>Remote Facade.</i>”
-            It also allows you to say to someone newer, “Use a <i>Data Transfer Object</i> for
-            this,” and they can come to this book to look it up. The result is that patterns
-            create a vocabulary about design, which is why naming is such an important
-            issue.
-            While most of these patterns are truly for enterprise applications, those in the
-            base patterns chapter (Chapter 18) are more general and localized. I include
-            them because I refer to them in discussions of the enterprise application patterns.</p>
+    <p>other. Often one pattern leads to another or one occurs only if another is around. Thus, you’ll usually only see <i>Class Table Inheritance</i> (285) if there’s a <i>Domain Model</i> (116) in your design. The boundaries between the patterns are naturally fuzzy, but I’ve tried to make each pattern as self-standing as I can. If someone says “Use a <i>Unit of Work</i> (184),” you can look it up and see how to apply it without having to read the entire book.</p>
+    <p>If you’re an experienced designer of enterprise applications, you’ll probably find that most of these patterns are familiar to you. I hope you won’t be too disappointed (I did try to warn you in the Preface). Patterns aren’t original ideas; they’re very much observations of what happens in the field. As a result, we pattern authors don’t say we “invented” a pattern but rather that we “discovered” one. Our role is to note the common solution, look for its core, and then write down the resulting pattern. For an experienced designer, the value of the pattern is not that it gives you a new idea; the value lies in helping you communicate your idea. If you and your colleagues all know what a <i>Remote Facade</i> (388) is, you can communicate a lot by saying, “This class is a <i>Remote Facade.</i>” It also allows you to say to someone newer, “Use a <i>Data Transfer Object</i> for this,” and they can come to this book to look it up. The result is that patterns create a vocabulary about design, which is why naming is such an important issue.</p>
+    <p>While most of these patterns are truly for enterprise applications, those in the base patterns chapter (Chapter 18) are more general and localized. I include them because I refer to them in discussions of the enterprise application patterns.</p>
     <h4>The Structure of the Patterns</h4>
     <p>Every author has to choose his pattern form. Some base their forms on a classic
             patterns book such as [Alexander et al.], [Gang of Four], or [POSA]. Others
