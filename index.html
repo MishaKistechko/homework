@@ -4,6 +4,95 @@
     <title>Patterns of Enterprise Application Architecture</title>
 </head>
 <body>
+
+    <table border="1" width="50%">
+        <tr>
+           <td colspan="2">&nbsp;</td>
+           <td>&nbsp;</td>     
+        </tr>
+        <tr>
+            <td rowspan="2">&nbsp;</td>
+            <td rowspan="3">&nbsp;</td>
+            <td>&nbsp;</td>     
+        </tr>
+        <tr>
+            <td>&nbsp;</td>                 
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>     
+        </tr>
+    </table>
+    <table border="0" width="100%" style="margin-top:50px;">
+        <tr>
+           <td>
+                <ul>
+                        <li>Boston</li> 
+                        <li>San Francisco</li> 
+                        <li>New York</li>
+                        <li>Toronto</li> 
+                        <li>Montreal London</li> 
+                        <li>Munich</li>
+                        <li>Paris</li> 
+                        <li>Madrid Capetown</li> 
+                        <li>Sydney</li>
+                        <li>Tokyo</li> 
+                        <li>Singapore</li>
+                        <li>Mexico City</li>
+                    </ul>     
+           </td>
+           <td>
+                <ul>
+                        <li>Boston</li> 
+                        <li>San Francisco</li> 
+                        <li>New York</li>
+                        <li>Toronto</li> 
+                        <li>Montreal London</li> 
+                        <li>Munich</li>
+                        <li>Paris</li> 
+                        <li>Madrid Capetown</li> 
+                        <li>Sydney</li>
+                        <li>Tokyo</li> 
+                        <li>Singapore</li>
+                        <li>Mexico City</li>
+                    </ul>
+           </td>     
+        </tr>
+    </table>    
+    <table border="2" width="100%" style="margin-top:50px;">
+        <tr>
+             <td rowspan="3">!</td>
+             <td colspan="2">!</td>
+             <td rowspan="5">!</td>
+             <td rowspan="7">!</td>
+        </tr>
+        <tr>
+             <td>!</td>
+             <td>!</td>
+        </tr>
+        <tr>
+             <td>!</td>
+             <td>!</td>
+        </tr>
+        <tr>
+             <td>!</td>
+             <td>!</td>
+             <td>!</td>
+        </tr>
+        <tr>
+             <td>!</td>
+             <td>!</td>
+             <td>!</td>
+        </tr>
+        <tr>
+             <td>!</td>
+             <td colspan="3">!</td>
+        </tr>
+        <tr>
+             <td colspan="2">!</td>
+             <td colspan="2">!</td>
+        </tr>
+    </table>
     <h1>Patterns of Enterprise Application Architecture</h1>
     <i>This page intentionally left blank</i>        
     <h2>Martin  Fowler</h2>
@@ -24,6 +113,63 @@
             <li>Mexico City</li>
         </ul>
     </h5>
+    <table border="2" width="100%" style="margin-top:50px;">
+        <tr>
+             <td colspan="3" rowspan="5">!</td>
+             <td colspan="2" rowspan="2">!</td> 
+             <td>!</td> 
+             <td>!</td>  
+        </tr>
+        <tr>
+             <td rowspan="2">!</td>
+             <td>!</td> 
+        </tr> 
+        <tr> 
+             <td colspan="2">!</td> 
+             <td>!</td>  
+        </tr> 
+        <tr> 
+             <td colspan="3" rowspan="6">!</td> 
+             <td>!</td> 
+        </tr> 
+        <tr> 
+             <td>!</td> 
+        </tr> 
+        <tr>
+             <td>!</td>
+             <td colspan="2" rowspan="4">!</td> 
+             <td>!</td> 
+        </tr> 
+        <tr>
+             <td>!</td>
+             <td>!</td> 
+        </tr> 
+        <tr>
+             <td rowspan="5">!</td>
+             <td>!</td>  
+        </tr> 
+        <tr> 
+             <td>!</td>  
+        </tr> 
+        <tr>
+             <td rowspan="3">!</td>
+             <td colspan="2">!</td> 
+             <td colspan="2">!</td> 
+             <td>!</td> 
+        </tr> 
+        <tr> 
+             <td colspan="2">!</td> 
+             <td colspan="2">!</td> 
+             <td>!</td> 
+        </tr> 
+        <tr>   
+             <td>!</td> 
+             <td>!</td> 
+             <td>!</td> 
+             <td>!</td> 
+             <td>!</td>
+        </tr>
+    </table>            
     <p>Many of the designations used by manufacturers and sellers to distinguish their products are claimed as trademarks. Where those designations appear in this book, and AddisonWesley was aware of a trademark claim, the designations have been printed with initial capital letters or in all capitals.</p>
     <p>The author and publisher have taken care in the preparation of this book, but make no expressed or implied warranty of any kind and assume no responsibility for errors or omissions. No liability is assumed for incidental or consequential damages in connection with or arising out of the use of the information or programs contained herein.</p>
     <p>For information about buying this title in bulk quantities, or for special sales opportunities (which may include electronic versions; custom cover designs; and content particular
@@ -136,7 +282,7 @@
     <p>Each pattern is relatively independent, but patterns aren’t isolated from each
     <p>other. Often one pattern leads to another or one occurs only if another is around. Thus, you’ll usually only see <i>Class Table Inheritance</i> (285) if there’s a <i>Domain Model</i> (116) in your design. The boundaries between the patterns are naturally fuzzy, but I’ve tried to make each pattern as self-standing as I can. If someone says “Use a <i>Unit of Work</i> (184),” you can look it up and see how to apply it without having to read the entire book.</p>
     <p>If you’re an experienced designer of enterprise applications, you’ll probably find that most of these patterns are familiar to you. I hope you won’t be too disappointed (I did try to warn you in the Preface). Patterns aren’t original ideas; they’re very much observations of what happens in the field. As a result, we pattern authors don’t say we “invented” a pattern but rather that we “discovered” one. Our role is to note the common solution, look for its core, and then write down the resulting pattern. For an experienced designer, the value of the pattern is not that it gives you a new idea; the value lies in helping you communicate your idea. If you and your colleagues all know what a <i>Remote Facade</i> (388) is, you can communicate a lot by saying, “This class is a <i>Remote Facade.</i>” It also allows you to say to someone newer, “Use a <i>Data Transfer Object</i> for this,” and they can come to this book to look it up. The result is that patterns create a vocabulary about design, which is why naming is such an important issue.</p>
-    <p>While most of these patterns are truly for enterprise applications, those in the base patterns chapter (Chapter 18) are more general and localized. I include them because I refer to them in discussions of the enterprise application patterns.</p>
+    <p>While most of these patterns are truly for enterprise apjplications, those in the base patterns chapter (Chapter 18) are more general and localized. I include them because I refer to them in discussions of the enterprise application patterns.</p>
     <h4>The Structure of the Patterns</h4>
     <p>Every author has to choose his pattern form. Some base their forms on a classic
             patterns book such as [Alexander et al.], [Gang of Four], or [POSA]. Others
