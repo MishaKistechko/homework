@@ -5,16 +5,1125 @@
         </head>
         <body>
                 <style>
-                        body {
-                                background-color: black;
+                        /* p, div {
+                            border: 1px solid red;
+                            margin: 10px 20px;
+                            padding: 10px 20px 30px 40px;
+                        } */
+
+                        .inner-div{
+                            padding: 10px;
+                        }
+
+                        .super-inner{
+                            display: block;
+                            border-color: blue;
+                            margin-bottom: 20px;
+                        }
+
+                        .menu{
+                                border: 1px dotted green;
+                                padding-left: 0;
+                                padding: 10px 5px;
+                        }
+
+                        .menu-item{
+                                display: inline-block;
+                                border: 1px solid red;
+                                padding: 50px 141px;
+                                color: white;
+                                background-color: gray;
+                        }
+
+                        .menu-item:hover{
+                                background: red;
+                                color: white;
+                                cursor: pointer;
+                        }
+                        .menu-item:active{
+                                background: green;
+                        }
+
+                        /* .menu div{
+                                display: inline-block;
+                                border: 1px solid red;
+                                padding: 10px 20px;
+                        }
+
+                        .menu div:hover{
+                                background: red;
                                 color: white;
                         }
+
+                        .menu li{
+                                display: inline-block;
+                                border: 1px solid red;
+                                padding: 10px 20px;
+                        }
+
+                        .menu li:hover{
+                                background: red;
+                                color: white;
+                        } */
+
+                        #top-button{
+                                display: block;
+                                position: fixed;
+                                bottom: 10px;
+                                right: 10px;
+                                background: blue;
+                                color: white;
+                                padding: 20px;
+                                font-weight: bold;
+                                text-decoration: none;
+                        }
+                        .start{
+                                display: inline-block;
+                                border: 1px solid red;
+                                padding: 10px 20px;
+                                width: 300px;
+                                position: absolute;
+
+                        }
+
+                        .start:hover{
+                                background: red;
+                                color: white;
+                                cursor: pointer;
+                        }
+                        .start:active{
+                                background: green;
+                        }
+                        .text{
+                                display: inline-block;
+                                border: 1px solid red;
+                                padding: 10px 20px;
+                                width: 930px;
+                                margin-left: 350px;
+                        }
+
                 </style>
-                <h1 style="color: red; background-color: black;">Patterns of Enterprise Application Architecture</h1>
+                <a href="#" id="top-button">TOP</a>
+                <h1 style="color: red; background-color: black; border: 1px solid darkblue; padding: 20px 40px;">Patterns of Enterprise Application Architecture</h1>
+                <div class="menu">
+                        <div class="menu-item">Main</div>
+                        <div class="menu-item"><a href="file:///C:/study/homework/index.html">Preface</a></div>
+                        <div class="menu-item"><a href="file:///C:/study/homework/part1.html" target="_blank">Part 1</a></div>
+                        <div class="menu-item"><a href="file:///C:/study/homework/part2.html" target="_blank">Part 2</a></div>
+                </div>
+                <div class="start">
+                <ol>
+                        <li>
+                                <a href="#Preface"><h4>Preface</h4></a>
+                                <ol type="i">
+                                        <li>
+                                                <a href="#Who_This_Book_Is_For">Who This Book Is For</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Acknowledgments">Acknowledgments</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Colophon">Colophon</a>
+                                        </li>
+                                </ol>
+                        </li>
+                        <li>
+                                <a href="#Introduction"><h4>Introduction</h4></a>
+                                <ol>
+                                        <li>
+                                                <a href="#Architecture">Architecture</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Enterprise_Applications">Enterprise Applications</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Kinds_of_Enterprise_Application">Kinds of Enterprise Application</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Thinking_About_Performance">Thinking About Performance</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Patterns">Patterns</a>
+                                        </li>
+                                        <li>
+                                                <a href="#The_Structure_of_the_Patterns">The Structure of the Patterns</a>
+                                        </li>
+                                        <li>
+                                                <a href="#Limitations_of_These_Patterns">Limitations of These Patterns</a>
+                                        </li>
+                                </ol>
+                        </li>
+                </ol>
+                <!-- part 1 -->
+                <ol>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html" target="_blank">PART1</a>
+                        </li>
+
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Layering" target="_blank">Chapter 1: Layering</a>
+
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#The_Evolution_of_Layers_in_Enterprise_Applications" target="_blank">The Evolution of Layers in Enterprise Applications</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#The_Three_Principal_Layers" target="_blank">The Three Principal Layers</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Choosing_Where_to_Run_Your_Layers" target="_blank">Choosing Where to Run Your Layers</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Organizing_Domain_Logic" target="_blank">Chapter 2: Organizing Domain Logic</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Making_a_Choice" target="_blank">Making a Choice</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Service_Layer" target="_blank">Service Layer</a>
+                                                </li>
+                                        </ol>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Mapping_to_Relational_Databases" target="_blank">Chapter 3: Mapping to Relational Databases</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Architectural_Patterns" target="_blank">Architectural Patterns</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#The_Behavioral_Problem" target="_blank">The Behavioral Problem</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Reading_in_Data" target="_blank">Reading in Data</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Structural_Mapping_Patterns" target="_blank">Structural Mapping Patterns</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Mapping_Relationships" target="_blank">Mapping Relationships</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Inheritance" target="_blank">Inheritance</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Building_the_Mapping" target="_blank">Building the Mapping</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Double_Mapping" target="_blank">Double Mapping</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Using_Metadata" target="_blank">Using Metadata</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Database_Connections" target="_blank">Database Connections</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Some_Miscellaneous_Points" target="_blank">Some Miscellaneous Points</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Further_Reading" target="_blank">Further Reading</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Web_Presentation" target="_blank">Chapter 4: Web Presentation</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#View_Patterns" target="_blank">View Patterns</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Input_Controller_Patterns" target="_blank">Input Controller Patterns</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Further_Reading1" target="_blank">Further Reading</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Concurrency" target="_blank">Chapter 5: Concurrency <i>(by Martin Fowler and David Rice)</i></a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Concurrency_Problems" target="_blank">Concurrency Problems</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Execution_Contexts" target="_blank">Execution Contexts</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Isolation_and_Immutability" target="_blank">Isolation and Immutability</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Optimistic_and_Pessimistic_Concurrency_Control" target="_blank">Optimistic and Pessimistic Concurrency Control</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Preventing_Inconsistent_Reads" target="_blank">Preventing Inconsistent Reads</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Deadlocks" target="_blank">Deadlocks</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Transactions" target="_blank">Transactions</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#ACID" target="_blank">ACID</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Transactional_Resources" target="_blank">Transactional Resources</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Reducing_Transaction_Isolation_for_Liveness" target="_blank">Reducing Transaction Isolation for Liveness</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Business_and_System_Transactions" target="_blank">Business and System Transactions</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Patterns_for_Offline_Concurrency_Control " target="_blank">Patterns for Offline Concurrency Control </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Application_Server_Concurrency" target="_blank">Application Server Concurrency</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Further_Reading80" target="_blank">Further Reading</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Session_State" target="_blank">Chapter 6: Session State</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#The_Value_of_Statelessness" target="_blank">The Value of Statelessness</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Session_State83" target="_blank">Session State</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Ways_to_Store_Session_State" target="_blank">Ways to Store Session State</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Distribution_Strategies" target="_blank">Chapter 7: Distribution Strategies</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#The_Allure_of_Distributed_Objects" target="_blank">The Allure of Distributed Objects</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Remote_and_Local_Interfaces" target="_blank">Remote and Local Interfaces</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Where_You_Have_to_Distribute" target="_blank">Where You Have to Distribute</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Working_with_the_Distribution_Boundary" target="_blank">Working with the Distribution Boundary</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Interfaces_for_Distribution" target="_blank">Interfaces for Distribution</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part1.html#Putting_It_All_Together" target="_blank">Chapter 8: Putting It All Together</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Starting_with_the_Domain_Layer" target="_blank">Starting with the Domain Layer</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Down_to_the_Data_Source_Layer" target="_blank">Down to the Data Source Layer</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Data_Source_for_Transaction_Script" target="_blank">Data Source for <i>Transaction Script (110)</i></a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Data_Source_Table_Module" target="_blank">Data Source <i>Table Module (125)</i></a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Data_Source_for_Domain_Model" target="_blank">Data Source for <i>Domain Model (116)</i></a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#The_Presentation_Layer" target="_blank">The Presentation Layer</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Some_Technology_Specific_Advice" target="_blank">Some Technology-Specific Advice</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Java_and_J2EE" target="_blank">Java and J2EE</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#.NET" target="_blank">.NET</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Stored_Procedures" target="_blank">Stored Procedures</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Web_Services" target="_blank">Web Services</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part1.html#Other_Layering_Schemes" target="_blank">Other Layering Schemes</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <!-- part 2 -->
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html" target="_blank">PART2</a>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#Domain_Logic_Patterns" target="_blank">Chapter 9: Domain Logic Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#Transaction_Script" target="_blank">Transaction Script</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#110" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#111" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#112" target="_blank">The Revenue Recognition Problem</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#113" target="_blank">Example: Revenue Recognition (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#116" target="_blank">Domain Model</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#116(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#119" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#119(2)" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#120" target="_blank">Example: Revenue Recognition (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#125" target="_blank">Table Module</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#126" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#128" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#129" target="_blank">Example: Revenue Recognition with a Table Module (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#133" target="_blank">Service Layer <i>(by Randy Stafford)</i></a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#134" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#137" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#137(2)" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#138" target="_blank">Example: Revenue Recognition (Java)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#143" target="_blank">Chapter 10: Data Source Architectural Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#144" target="_blank">Table Data Gateway</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#144(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#145" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#146" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#146(2)" target="_blank">Example: Person Gateway (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#148" target="_blank">Example: Using ADO.NET Data Sets (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#152" target="_blank">Row Data Gateway</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#152(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#153" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#155" target="_blank">Example: A Person Record (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#158" target="_blank">Example: A Data Holder for a Domain Object (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#160" target="_blank">Active Record</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#160(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#161" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#162" target="_blank">Example: A Simple Person (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#165" target="_blank">Data Mapper</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#165(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#170" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#171" target="_blank">Example: A Simple Database Mapper (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#176" target="_blank">Example: Separating the Finders (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#179" target="_blank">Example: Creating an Empty Object (Java)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#183" target="_blank">Chapter 11: Object-Relational Behavioral Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#184" target="_blank">Unit of Work</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#184(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#189" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#190" target="_blank">Example: <i>Unit of Work with Object Registration (Java) (by David Rice)</i> </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#195" target="_blank">Identity Map</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#195(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#198" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#198(2)" target="_blank">Example: Methods for an Identity Map (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#200" target="_blank">Lazy Load</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#200(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#203" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#203(2)" target="_blank">Example: Lazy Initialization (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#203(3)" target="_blank">Example: Virtual Proxy (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#205" target="_blank">Example: Using a Value Holder (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#206" target="_blank">Example: Using Ghosts (C#)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#215" target="_blank">Chapter 12: Object-Relational Structural Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#216" target="_blank">Identity Field</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#216(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#220" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#221" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#221(2)" target="_blank">Example: Integral Key (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#222" target="_blank">Example: Using a Key Table (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#224" target="_blank">Example: Using a Compound Key (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#236" target="_blank">Foreign Key Mapping</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#236(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#239" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#240" target="_blank">Example: Single-Valued Reference (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#243" target="_blank">Example: Multitable Find (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#244" target="_blank">Example: Collection of References (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#248" target="_blank">Association Table Mapping</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#248(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#249" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#250" target="_blank">Example: Employees and Skills (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#253" target="_blank">Example: Using Direct SQL (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#256" target="_blank">Example: Using a Single Query for Multiple Employees (Java) <i>(by Matt Foemmel and Martin Fowler)</i></a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#262" target="_blank">Dependent Mapping</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#262(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#263" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#264" target="_blank">Example: Albums and Tracks (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#268" target="_blank">Embedded Value</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#268(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#268(3)" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#270" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#270(2)" target="_blank">Example: Simple Value Object (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#272" target="_blank">Serialized LOB</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#272(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#274" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#274(2)" target="_blank">Example: Serializing a Department Hierarchy in XML (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#278" target="_blank">Single Table Inheritance</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#278(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#279" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#280" target="_blank">Example: A Single Table for Players (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#281" target="_blank">Loading an Object from the Database</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#285" target="_blank">Class Table Inheritance</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#285(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#286" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#287" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#287(2)" target="_blank">Example: Players and Their Kin (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#293" target="_blank">Concrete Table Inheritance</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#293(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#295" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#296" target="_blank">Example: Concrete Players (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#302" target="_blank">Inheritance Mappers</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#303" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#304" target="_blank">When to Use It</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#305" target="_blank">Chapter 13: Object-Relational Metadata Mapping Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#306" target="_blank">Metadata Mapping</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#306(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#308" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#309" target="_blank">Example: Using Metadata and Reflection (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#316" target="_blank">Query Object</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#316" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#317" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#318" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#318(2)" target="_blank">Example: A Simple Query Object (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#322" target="_blank">Repository (by Edward Hieatt and Rob Mee)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#323" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#324" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#325" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#325(2)" target="_blank">Example: Finding a Person’s Dependents (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#326" target="_blank">Example: Swapping Repository Strategies (Java)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#329" target="_blank">Chapter 14: Web Presentation Patterns.</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#330" target="_blank">Model View Controller</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#330(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#332" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#333" target="_blank">Page Controller</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#333(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#334" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#335" target="_blank">Example: Simple Display with a Servlet Controller and a JSP View (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#337" target="_blank">Example: Using a JSP as a Handler (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#340" target="_blank">Example: Page Handler with a Code Behind (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#344" target="_blank">Front Controller</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#344(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#346" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#347" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#347(2)" target="_blank">Example: Simple Display (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#350" target="_blank">Template View</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#351" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#354" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#355" target="_blank">Example: Using a JSP as a View with a Separate Controller (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#357" target="_blank">Example: ASP.NET Server Page (C#) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#361" target="_blank">Transform View</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#361(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#362" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#363" target="_blank">Example: Simple Transform (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#365" target="_blank">Two Step View</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#365(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#367" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#371" target="_blank">Example: Two Stage XSLT (XSLT)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#374" target="_blank">Example: JSP and Custom Tags (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#379" target="_blank">Application Controller</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#380" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#381" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#382" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#382(2)" target="_blank">Example: State Model Application Controller (Java)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#387" target="_blank">Chapter 15: Distribution Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#388" target="_blank">Remote Facade</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#389" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#392" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#392(2)" target="_blank">Example: Using a Java Session Bean as a Remote Facade (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#395" target="_blank">Example: Web Service (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#401" target="_blank">Data Transfer Object</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#401(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#406" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#407" target="_blank">Further Reading </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#407(2)" target="_blank">Example: Transferring Information About Albums (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#411" target="_blank">Example: Serializing Using XML (Java)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#415" target="_blank">Chapter 16: Offline Concurrency Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#416" target="_blank">Optimistic Offline Lock (by David Rice)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#417" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#420" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#421" target="_blank">Example: Domain Layer with Data Mappers (165) (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#426" target="_blank">Pessimistic Offline Lock (by David Rice)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#427" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#431" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#431(2)" target="_blank">Example: Simple Lock Manager (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#438" target="_blank">Coarse-Grained Lock (by David Rice and Matt Foemmel)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#438(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#441" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#441(2)" target="_blank">Example: Shared Optimistic Offline Lock (416) (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#446" target="_blank">Example: Shared Pessimistic Offline Lock (426) (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#447" target="_blank">Example: Root Optimistic Offline Lock (416) (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#449" target="_blank">Implicit Lock (by David Rice)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#450" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#451" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#451(2)" target="_blank">Example: Implicit Pessimistic Offline Lock (426) (Java)</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#455" target="_blank">Chapter 17: Session State Patterns</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#456" target="_blank">Client Session State</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#456(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#457" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#458" target="_blank">Server Session State</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#458(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#460" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#462" target="_blank">Database Session State</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#462(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#464" target="_blank">When to Use It</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#465" target="_blank">Chapter 18: Base Patterns.</a>
+                                        <ol>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#466" target="_blank">Gateway</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#466(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#467" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#468" target="_blank">Example: A Gateway to a Proprietary Messaging Service (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#473" target="_blank">Mapper</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#473(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#474" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#475" target="_blank">Layer Supertype</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#475(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#475(3)" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#475(4)" target="_blank">Example: Domain Object (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#476" target="_blank">Separated Interface</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#477" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#478" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#480" target="_blank">Registry</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#480(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#482" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#483" target="_blank">Example: A Singleton Registry (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#484" target="_blank">Example: Thread-Safe Registry (Java) (by Matt Foemmel and Martin Fowler)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#486" target="_blank">Value Object</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#486(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#487" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#488" target="_blank">Money</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#488(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#490" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#491" target="_blank">Example: A Money Class (Java) (by Matt Foemmel and Martin Fowler)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#496" target="_blank">Special Case</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#497" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#497(2)" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#497(3)" target="_blank">Further Reading</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#498" target="_blank">Example: A Simple Null Object (C#)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#499" target="_blank">Plugin (by David Rice and Matt Foemmel)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#499(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#500" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#501" target="_blank">Example: An Id Generator (Java) </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#504" target="_blank">Service Stub (by David Rice).</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#504(2)" target="_blank">How It Works </a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#505" target="_blank">When to Use It</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#505(2)" target="_blank">Example: Sales Tax Service (Java)</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#508" target="_blank">Record Set</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#508(2)" target="_blank">How It Works</a>
+                                                </li>
+                                                <li>
+                                                        <a href="file:///C:/study/homework/part2.html#510" target="_blank">When to Use It</a>
+                                                </li>
+                                        </ol>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#511" target="_blank">References</a>
+                        </li>
+                        <li>
+                                <a href="file:///C:/study/homework/part2.html#517" target="_blank">Index</a>
+                        </li>
+                </ol>
+                </div>
+                <div class="text">
                 <h2>Martin  Fowler</h2>
                 <h3>With contributions from David Rice, Matthew Foemmel, Edward Hieatt, Robert Mee, and Randy Stafford</h3>
-                <p>
-                        <ul>
+                <ul>
                         <li>Boston</li>
                         <li>San Francisco</li>
                         <li>New York</li>
@@ -27,1018 +1136,7 @@
                         <li>Tokyo</li>
                         <li>Singapore</li>
                         <li>Mexico City</li>
-                        </ul>
-                </p>
-                <p>
-                        <h3>Contents</h3>
-                        <ol>
-                                <li>
-                                        <a href="#Preface"><h4>Preface</h4></a>
-                                        <ol type="i">
-                                                <li>
-                                                        <a href="#Who_This_Book_Is_For">Who This Book Is For</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Acknowledgments">Acknowledgments</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Colophon">Colophon</a>
-                                                </li>
-                                        </ol>
-                                </li>
-                                <li>
-                                        <a href="#Introduction"><h4>Introduction</h4></a>
-                                        <ol>
-                                                <li>
-                                                        <a href="#Architecture">Architecture</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Enterprise_Applications">Enterprise Applications</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Kinds_of_Enterprise_Application">Kinds of Enterprise Application</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Thinking_About_Performance">Thinking About Performance</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Patterns">Patterns</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#The_Structure_of_the_Patterns">The Structure of the Patterns</a>
-                                                </li>
-                                                <li>
-                                                        <a href="#Limitations_of_These_Patterns">Limitations of These Patterns</a>
-                                                </li>
-                                        </ol>
-                                </li>
-                        </ol>
-                        <!-- part 1 -->
-                        <ol>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html" target="_blank">PART1</a>
-                                </li>
-
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Layering" target="_blank">Chapter 1: Layering</a>
-
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#The_Evolution_of_Layers_in_Enterprise_Applications" target="_blank">The Evolution of Layers in Enterprise Applications</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#The_Three_Principal_Layers" target="_blank">The Three Principal Layers</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Choosing_Where_to_Run_Your_Layers" target="_blank">Choosing Where to Run Your Layers</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Organizing_Domain_Logic" target="_blank">Chapter 2: Organizing Domain Logic</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Making_a_Choice" target="_blank">Making a Choice</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Service_Layer" target="_blank">Service Layer</a>
-                                                        </li>
-                                                </ol>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Mapping_to_Relational_Databases" target="_blank">Chapter 3: Mapping to Relational Databases</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Architectural_Patterns" target="_blank">Architectural Patterns</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#The_Behavioral_Problem" target="_blank">The Behavioral Problem</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Reading_in_Data" target="_blank">Reading in Data</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Structural_Mapping_Patterns" target="_blank">Structural Mapping Patterns</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Mapping_Relationships" target="_blank">Mapping Relationships</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Inheritance" target="_blank">Inheritance</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Building_the_Mapping" target="_blank">Building the Mapping</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Double_Mapping" target="_blank">Double Mapping</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Using_Metadata" target="_blank">Using Metadata</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Database_Connections" target="_blank">Database Connections</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Some_Miscellaneous_Points" target="_blank">Some Miscellaneous Points</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Further_Reading" target="_blank">Further Reading</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Web_Presentation" target="_blank">Chapter 4: Web Presentation</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#View_Patterns" target="_blank">View Patterns</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Input_Controller_Patterns" target="_blank">Input Controller Patterns</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Further_Reading1" target="_blank">Further Reading</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Concurrency" target="_blank">Chapter 5: Concurrency <i>(by Martin Fowler and David Rice)</i></a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Concurrency_Problems" target="_blank">Concurrency Problems</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Execution_Contexts" target="_blank">Execution Contexts</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Isolation_and_Immutability" target="_blank">Isolation and Immutability</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Optimistic_and_Pessimistic_Concurrency_Control" target="_blank">Optimistic and Pessimistic Concurrency Control</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Preventing_Inconsistent_Reads" target="_blank">Preventing Inconsistent Reads</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Deadlocks" target="_blank">Deadlocks</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Transactions" target="_blank">Transactions</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#ACID" target="_blank">ACID</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Transactional_Resources" target="_blank">Transactional Resources</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Reducing_Transaction_Isolation_for_Liveness" target="_blank">Reducing Transaction Isolation for Liveness</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Business_and_System_Transactions" target="_blank">Business and System Transactions</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Patterns_for_Offline_Concurrency_Control " target="_blank">Patterns for Offline Concurrency Control </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Application_Server_Concurrency" target="_blank">Application Server Concurrency</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Further_Reading80" target="_blank">Further Reading</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Session_State" target="_blank">Chapter 6: Session State</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#The_Value_of_Statelessness" target="_blank">The Value of Statelessness</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Session_State83" target="_blank">Session State</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Ways_to_Store_Session_State" target="_blank">Ways to Store Session State</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Distribution_Strategies" target="_blank">Chapter 7: Distribution Strategies</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#The_Allure_of_Distributed_Objects" target="_blank">The Allure of Distributed Objects</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Remote_and_Local_Interfaces" target="_blank">Remote and Local Interfaces</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Where_You_Have_to_Distribute" target="_blank">Where You Have to Distribute</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Working_with_the_Distribution_Boundary" target="_blank">Working with the Distribution Boundary</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Interfaces_for_Distribution" target="_blank">Interfaces for Distribution</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part1.html#Putting_It_All_Together" target="_blank">Chapter 8: Putting It All Together</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Starting_with_the_Domain_Layer" target="_blank">Starting with the Domain Layer</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Down_to_the_Data_Source_Layer" target="_blank">Down to the Data Source Layer</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Data_Source_for_Transaction_Script" target="_blank">Data Source for <i>Transaction Script (110)</i></a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Data_Source_Table_Module" target="_blank">Data Source <i>Table Module (125)</i></a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Data_Source_for_Domain_Model" target="_blank">Data Source for <i>Domain Model (116)</i></a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#The_Presentation_Layer" target="_blank">The Presentation Layer</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Some_Technology_Specific_Advice" target="_blank">Some Technology-Specific Advice</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Java_and_J2EE" target="_blank">Java and J2EE</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#.NET" target="_blank">.NET</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Stored_Procedures" target="_blank">Stored Procedures</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Web_Services" target="_blank">Web Services</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part1.html#Other_Layering_Schemes" target="_blank">Other Layering Schemes</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <!-- part 2 -->
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html" target="_blank">PART2</a>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#Domain_Logic_Patterns" target="_blank">Chapter 9: Domain Logic Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#Transaction_Script" target="_blank">Transaction Script</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#110" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#111" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#112" target="_blank">The Revenue Recognition Problem</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#113" target="_blank">Example: Revenue Recognition (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#116" target="_blank">Domain Model</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#116(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#119" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#119(2)" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#120" target="_blank">Example: Revenue Recognition (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#125" target="_blank">Table Module</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#126" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#128" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#129" target="_blank">Example: Revenue Recognition with a Table Module (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#133" target="_blank">Service Layer <i>(by Randy Stafford)</i></a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#134" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#137" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#137(2)" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#138" target="_blank">Example: Revenue Recognition (Java)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#143" target="_blank">Chapter 10: Data Source Architectural Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#144" target="_blank">Table Data Gateway</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#144(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#145" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#146" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#146(2)" target="_blank">Example: Person Gateway (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#148" target="_blank">Example: Using ADO.NET Data Sets (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#152" target="_blank">Row Data Gateway</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#152(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#153" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#155" target="_blank">Example: A Person Record (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#158" target="_blank">Example: A Data Holder for a Domain Object (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#160" target="_blank">Active Record</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#160(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#161" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#162" target="_blank">Example: A Simple Person (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#165" target="_blank">Data Mapper</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#165(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#170" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#171" target="_blank">Example: A Simple Database Mapper (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#176" target="_blank">Example: Separating the Finders (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#179" target="_blank">Example: Creating an Empty Object (Java)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#183" target="_blank">Chapter 11: Object-Relational Behavioral Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#184" target="_blank">Unit of Work</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#184(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#189" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#190" target="_blank">Example: <i>Unit of Work with Object Registration (Java) (by David Rice)</i> </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#195" target="_blank">Identity Map</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#195(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#198" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#198(2)" target="_blank">Example: Methods for an Identity Map (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#200" target="_blank">Lazy Load</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#200(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#203" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#203(2)" target="_blank">Example: Lazy Initialization (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#203(3)" target="_blank">Example: Virtual Proxy (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#205" target="_blank">Example: Using a Value Holder (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#206" target="_blank">Example: Using Ghosts (C#)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#215" target="_blank">Chapter 12: Object-Relational Structural Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#216" target="_blank">Identity Field</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#216(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#220" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#221" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#221(2)" target="_blank">Example: Integral Key (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#222" target="_blank">Example: Using a Key Table (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#224" target="_blank">Example: Using a Compound Key (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#236" target="_blank">Foreign Key Mapping</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#236(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#239" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#240" target="_blank">Example: Single-Valued Reference (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#243" target="_blank">Example: Multitable Find (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#244" target="_blank">Example: Collection of References (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#248" target="_blank">Association Table Mapping</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#248(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#249" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#250" target="_blank">Example: Employees and Skills (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#253" target="_blank">Example: Using Direct SQL (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#256" target="_blank">Example: Using a Single Query for Multiple Employees (Java) <i>(by Matt Foemmel and Martin Fowler)</i></a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#262" target="_blank">Dependent Mapping</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#262(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#263" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#264" target="_blank">Example: Albums and Tracks (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#268" target="_blank">Embedded Value</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#268(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#268(3)" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#270" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#270(2)" target="_blank">Example: Simple Value Object (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#272" target="_blank">Serialized LOB</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#272(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#274" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#274(2)" target="_blank">Example: Serializing a Department Hierarchy in XML (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#278" target="_blank">Single Table Inheritance</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#278(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#279" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#280" target="_blank">Example: A Single Table for Players (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#281" target="_blank">Loading an Object from the Database</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#285" target="_blank">Class Table Inheritance</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#285(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#286" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#287" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#287(2)" target="_blank">Example: Players and Their Kin (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#293" target="_blank">Concrete Table Inheritance</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#293(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#295" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#296" target="_blank">Example: Concrete Players (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#302" target="_blank">Inheritance Mappers</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#303" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#304" target="_blank">When to Use It</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#305" target="_blank">Chapter 13: Object-Relational Metadata Mapping Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#306" target="_blank">Metadata Mapping</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#306(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#308" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#309" target="_blank">Example: Using Metadata and Reflection (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#316" target="_blank">Query Object</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#316" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#317" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#318" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#318(2)" target="_blank">Example: A Simple Query Object (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#322" target="_blank">Repository (by Edward Hieatt and Rob Mee)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#323" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#324" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#325" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#325(2)" target="_blank">Example: Finding a Person’s Dependents (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#326" target="_blank">Example: Swapping Repository Strategies (Java)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#329" target="_blank">Chapter 14: Web Presentation Patterns.</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#330" target="_blank">Model View Controller</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#330(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#332" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#333" target="_blank">Page Controller</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#333(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#334" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#335" target="_blank">Example: Simple Display with a Servlet Controller and a JSP View (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#337" target="_blank">Example: Using a JSP as a Handler (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#340" target="_blank">Example: Page Handler with a Code Behind (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#344" target="_blank">Front Controller</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#344(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#346" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#347" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#347(2)" target="_blank">Example: Simple Display (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#350" target="_blank">Template View</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#351" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#354" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#355" target="_blank">Example: Using a JSP as a View with a Separate Controller (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#357" target="_blank">Example: ASP.NET Server Page (C#) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#361" target="_blank">Transform View</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#361(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#362" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#363" target="_blank">Example: Simple Transform (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#365" target="_blank">Two Step View</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#365(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#367" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#371" target="_blank">Example: Two Stage XSLT (XSLT)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#374" target="_blank">Example: JSP and Custom Tags (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#379" target="_blank">Application Controller</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#380" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#381" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#382" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#382(2)" target="_blank">Example: State Model Application Controller (Java)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#387" target="_blank">Chapter 15: Distribution Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#388" target="_blank">Remote Facade</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#389" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#392" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#392(2)" target="_blank">Example: Using a Java Session Bean as a Remote Facade (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#395" target="_blank">Example: Web Service (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#401" target="_blank">Data Transfer Object</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#401(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#406" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#407" target="_blank">Further Reading </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#407(2)" target="_blank">Example: Transferring Information About Albums (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#411" target="_blank">Example: Serializing Using XML (Java)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#415" target="_blank">Chapter 16: Offline Concurrency Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#416" target="_blank">Optimistic Offline Lock (by David Rice)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#417" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#420" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#421" target="_blank">Example: Domain Layer with Data Mappers (165) (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#426" target="_blank">Pessimistic Offline Lock (by David Rice)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#427" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#431" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#431(2)" target="_blank">Example: Simple Lock Manager (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#438" target="_blank">Coarse-Grained Lock (by David Rice and Matt Foemmel)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#438(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#441" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#441(2)" target="_blank">Example: Shared Optimistic Offline Lock (416) (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#446" target="_blank">Example: Shared Pessimistic Offline Lock (426) (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#447" target="_blank">Example: Root Optimistic Offline Lock (416) (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#449" target="_blank">Implicit Lock (by David Rice)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#450" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#451" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#451(2)" target="_blank">Example: Implicit Pessimistic Offline Lock (426) (Java)</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#455" target="_blank">Chapter 17: Session State Patterns</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#456" target="_blank">Client Session State</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#456(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#457" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#458" target="_blank">Server Session State</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#458(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#460" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#462" target="_blank">Database Session State</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#462(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#464" target="_blank">When to Use It</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#465" target="_blank">Chapter 18: Base Patterns.</a>
-                                                <ol>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#466" target="_blank">Gateway</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#466(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#467" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#468" target="_blank">Example: A Gateway to a Proprietary Messaging Service (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#473" target="_blank">Mapper</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#473(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#474" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#475" target="_blank">Layer Supertype</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#475(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#475(3)" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#475(4)" target="_blank">Example: Domain Object (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#476" target="_blank">Separated Interface</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#477" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#478" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#480" target="_blank">Registry</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#480(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#482" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#483" target="_blank">Example: A Singleton Registry (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#484" target="_blank">Example: Thread-Safe Registry (Java) (by Matt Foemmel and Martin Fowler)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#486" target="_blank">Value Object</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#486(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#487" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#488" target="_blank">Money</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#488(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#490" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#491" target="_blank">Example: A Money Class (Java) (by Matt Foemmel and Martin Fowler)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#496" target="_blank">Special Case</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#497" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#497(2)" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#497(3)" target="_blank">Further Reading</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#498" target="_blank">Example: A Simple Null Object (C#)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#499" target="_blank">Plugin (by David Rice and Matt Foemmel)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#499(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#500" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#501" target="_blank">Example: An Id Generator (Java) </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#504" target="_blank">Service Stub (by David Rice).</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#504(2)" target="_blank">How It Works </a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#505" target="_blank">When to Use It</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#505(2)" target="_blank">Example: Sales Tax Service (Java)</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#508" target="_blank">Record Set</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#508(2)" target="_blank">How It Works</a>
-                                                        </li>
-                                                        <li>
-                                                                <a href="file:///C:/study/homework/part2.html#510" target="_blank">When to Use It</a>
-                                                        </li>
-                                                </ol>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#511" target="_blank">References</a>
-                                </li>
-                                <li>
-                                        <a href="file:///C:/study/homework/part2.html#517" target="_blank">Index</a>
-                                </li>
-                        </ol>
-                </p>
+                </ul>
                 <h2 id="Contents">Contents</h2>
                 <h2 id="Preface">Preface</h2>
                 <p>In the spring of 1999 I flew to Chicago to consult on a project being done by ThoughtWorks, a small but rapidly growing application development company. The project was one of those ambitious enterprise application projects: a backend leasing system. Essentially it deals with everything that happens to a lease after you’ve signed on the dotted line: sending out bills, handling someone upgrading one of the assets on the lease, chasing people who don’t pay their bills on time, and figuring out what happens when someone returns the assets early. That doesn’t sound too bad until you realize that leasing agreements are infinitely varied and horrendously complicated. The business “logic” rarely fitsany logical pattern, because, after all, it’s written by business people to capture business, where odd small variations can make all the difference in winning a
@@ -1050,14 +1148,15 @@
                 <p>This is a book on enterprise application design. Enterprise applications are about the display, manipulation, and storage of large amounts of often complex data and the support or automation of business processes with that data.</p>
                 <p>Examples include reservation systems, financial systems, supply chain systems, and many others that run modern business. Enterprise applications have their own particular challenges and solutions, and they are different from embedded systems, control systems, telecoms, or desktop productivity software. Thus, if you work in these other fields, there’s nothing really in this book for you (unless you want to get a feel for what enterprise applications are like.) For a general book on software architecture, I’d recommend [POSA].</p>
                 <p>There are many architectural issues in building enterprise applications. I’m afraid this book can’t be a comprehensive guide to them. In building software I’m a great believer in iterative development. At the heart of iterative development is the notion that you should deliver software as soon as you have something useful to the user, even if it’s not complete. Although there are many differences between writing a book and writing software, this notion is one that I think the two share. That said, this book is an incomplete but (I trust) useful compendium of advice on enterprise application architecture. The primary topics I talk about are
-                        <ul>
-                        <li>Layering of enterprise applications</li>
-                        <li>Structuring domain (business) logic PREFACE xix</li>
-                        <li>Structuring a Web user interface</li>
-                        <li>Linking in-memory modules (particularly objects) to a relational database</li>
-                        <li>Handling session state in stateless environments</li>
-                        <li>Principles of distribution</li>
-                        </ul>The list of things I don’t talk about is rather longer. I really fancied writing about organizing validation, incorporating messaging and asynchronous communication, security, error handling, clustering, application integration, architectural refactoring, structuring rich-client user interfaces, among other topics. However, because of space and time constraints and lack of cogitation, you won’t find them in this book. I can only hope to see some patterns for this work in the near future. Perhaps I’ll do a second volume someday and get into these topics, or maybe someone else will fill these and other gaps. Of these, message-based communication is a particularly big issue. People who are integrating multiple applications are increasingly making use of asynchronous message-based communication approaches. There’s much to be said for using them within an application as well. This book is not intended to be specific for any particular software platform. I first came across these patterns while working with Smalltalk, C++, and CORBA in the late ’80s and early ’90s. In the late ’90s I started to do extensive work in Java and found that these patterns applied well to both early Java/ CORBA systems and later J2EE-based work. More recently I’ve been doing some initial work with Microsoft’s .NET platform and find the patterns apply again. My ThoughtWorks colleagues have also introduced their experiences, particularly with Forte. I can’t claim generality across all platforms that have ever been or will be used for enterprise applications, but so far these patterns have shown enough recurrence to be useful. I have provided code examples for most of the patterns. My choice of language for them is based on what I think most readers are likely to be able to read and understand. Java is a good choice here. Anyone who can read C or C++ can read Java, yet Java is much less complex than C++. Essentially most C++ programmers can read Java but not vice versa. I’m an object bigot, so I inevitably lean to an OO language. As a result, most of the code examples are in Java. As I was working on the book, Microsoft started stabilizing its .NET environment, and its C# language has most of the same properties as Java for an author. So I did some of the code examples in C# as well, although that introduced some risk since developers don’t have much experience with .NET and so the idioms for using it well are less mature. Both are C-based languages, so if you can read one xx PREFACE you should be able to read both, even if you aren’t deeply into that language or platform. My aim was to use a language that the largest amount of software developers can read, even if it’s not their primary or preferred language. (My apologies to those who like Smalltalk, Delphi, Visual Basic, Perl, Python, Ruby, COBOL, or any other language. I know you think you know a better language than Java or C#. All I can say is I do, too!) The examples are there for inspiration and explanation of the ideas in the patterns. They aren’t canned solutions; in all cases you’ll need to do a fair bit of work to fit them into your application. Patterns are useful starting points, but they are not destinations.</p>
+                <ul>
+                <li>Layering of enterprise applications</li>
+                <li>Structuring domain (business) logic PREFACE xix</li>
+                <li>Structuring a Web user interface</li>
+                <li>Linking in-memory modules (particularly objects) to a relational database</li>
+                <li>Handling session state in stateless environments</li>
+                <li>Principles of distribution</li>
+                </ul>
+                <p>The list of things I don’t talk about is rather longer. I really fancied writing about organizing validation, incorporating messaging and asynchronous communication, security, error handling, clustering, application integration, architectural refactoring, structuring rich-client user interfaces, among other topics. However, because of space and time constraints and lack of cogitation, you won’t find them in this book. I can only hope to see some patterns for this work in the near future. Perhaps I’ll do a second volume someday and get into these topics, or maybe someone else will fill these and other gaps. Of these, message-based communication is a particularly big issue. People who are integrating multiple applications are increasingly making use of asynchronous message-based communication approaches. There’s much to be said for using them within an application as well. This book is not intended to be specific for any particular software platform. I first came across these patterns while working with Smalltalk, C++, and CORBA in the late ’80s and early ’90s. In the late ’90s I started to do extensive work in Java and found that these patterns applied well to both early Java/ CORBA systems and later J2EE-based work. More recently I’ve been doing some initial work with Microsoft’s .NET platform and find the patterns apply again. My ThoughtWorks colleagues have also introduced their experiences, particularly with Forte. I can’t claim generality across all platforms that have ever been or will be used for enterprise applications, but so far these patterns have shown enough recurrence to be useful. I have provided code examples for most of the patterns. My choice of language for them is based on what I think most readers are likely to be able to read and understand. Java is a good choice here. Anyone who can read C or C++ can read Java, yet Java is much less complex than C++. Essentially most C++ programmers can read Java but not vice versa. I’m an object bigot, so I inevitably lean to an OO language. As a result, most of the code examples are in Java. As I was working on the book, Microsoft started stabilizing its .NET environment, and its C# language has most of the same properties as Java for an author. So I did some of the code examples in C# as well, although that introduced some risk since developers don’t have much experience with .NET and so the idioms for using it well are less mature. Both are C-based languages, so if you can read one xx PREFACE you should be able to read both, even if you aren’t deeply into that language or platform. My aim was to use a language that the largest amount of software developers can read, even if it’s not their primary or preferred language. (My apologies to those who like Smalltalk, Delphi, Visual Basic, Perl, Python, Ruby, COBOL, or any other language. I know you think you know a better language than Java or C#. All I can say is I do, too!) The examples are there for inspiration and explanation of the ideas in the patterns. They aren’t canned solutions; in all cases you’ll need to do a fair bit of work to fit them into your application. Patterns are useful starting points, but they are not destinations.</p>
                 <h3 id="Who_This_Book_Is_For">Who This Book Is For</h3>
                 <p>I’ve written this book for programmers, designers, and architects who are building enterprise applications and who want to improve either their understanding of architectural issues or their communication about them. I’m assuming that most of my readers will fall into two groups: those with modest needs who are looking to build their own software and readers with more demanding needs who will be using a tool. For those of modest needs, my intention is that these patterns should get you started. In many areas you’ll need more than the patterns will give you, but I’ll provide you more of a headstart in this field than I got. For tool users I hope this book will give you some idea of what’s happening under the hood and also help you choose which of the toolsupported patterns to use. Using, say, an object-relational mapping tool still means that you have to make decisions about how to map certain situations. Reading the patterns should give you some guidance in making the choices. There is a third category; those with demanding needs who want to build their own software. The first thing I’d say here is to look carefully at using tools. I’ve seen more than one project get sucked into a long exercise at building frameworks, which wasn’t what the project was really about. If you’re still convinced, go ahead. Remember in this case that many of the code examples in this book are deliberately simplified to help understanding, and you’ll find you’ll need to do a lot tweaking to handle the greater demands you face. Since patterns are common solutions to recurring problems, there’s a good chance that you have already come across some of them. If you’ve been working in enterprise applications for a while, you may well know most of them. I’m not claiming to present anything new in this book. Indeed, I claim the opposite—this is a book of (for our industry) old ideas. If you’re new to this field, I PREFACE xxi hope the book will help you learn about these techniques. If you’re familiar with the techniques, I hope the book will help you communicate and teach them to others. An important part of patterns is trying to build a common vocabulary, so you can say that this class is a Remote Facade (388) and other designers will know what you mean.</p>
                 <h3 id="Acknowledgments">Acknowledgments</h3>
@@ -1161,5 +1260,6 @@
                 <p>The patterns here are all ones that I’ve seen in the field, but I’m not going to claim I completely understand all of their ramifications and interrelationships. This book reflects my current understanding, and that understanding has developed as I’ve been writing the book. I expect it will continue to evolve long after this book has turned into paper. One certainty of software development is that it never stands still.</p>
                 <p>As you consider using the patterns, never forget that they’re a starting point, not a final destination. There’s no way that any author can see all the many variations that software projects have. I’ve written these patterns to help provide a beginning, so you can read about lessons that I, and the people I’ve observed, have learned from doing and struggling. You’ll have your own struggles on top of these. Always remember that every pattern is incomplete and that you have the responsibility, and the fun, of completing it in the context of your own system.
                 </p>
+        </div>
         </body>
 </html>
