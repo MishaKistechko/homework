@@ -5,6 +5,10 @@
         </head>
         <body>
                 <style>
+                        body{
+                                margin: 0;
+                                padding: 0;
+                        }
                         /* p, div {
                             border: 1px solid red;
                             margin: 10px 20px;
@@ -22,17 +26,23 @@
                         }
 
                         .menu{
-                                border: 1px dotted green;
-                                padding-left: 0;
-                                padding: 10px 5px;
+                                border: 1px solid black;
+                                display: table;
+                                width:100%;
                         }
 
                         .menu-item{
-                                display: inline-block;
-                                border: 1px solid red;
-                                padding: 50px 141px;
-                                color: white;
-                                background-color: gray;
+                                border: 1px solid blue;
+                                display: table-cell;
+
+                                padding: 20px;
+                        }
+                        .menu-item2{
+                                border: 1px solid blue;
+                                display: table-cell;
+                                width: 60%;
+
+                                padding: 20px;
                         }
 
                         .menu-item:hover{
@@ -78,11 +88,10 @@
                                 text-decoration: none;
                         }
                         .start{
-                                display: inline-block;
+                                display: table-cell;
                                 border: 1px solid red;
-                                padding: 10px 20px;
-                                width: 300px;
-                                position: absolute;
+                                width: 30%;
+
 
                         }
 
@@ -95,21 +104,22 @@
                                 background: green;
                         }
                         .text{
-                                display: inline-block;
+                                display: table-cell;
                                 border: 1px solid red;
-                                padding: 10px 20px;
-                                width: 930px;
-                                margin-left: 350px;
+                                padding: 10px;
+                                width: 70%;
                         }
 
                 </style>
                 <a href="#" id="top-button">TOP</a>
                 <h1 style="color: red; background-color: black; border: 1px solid darkblue; padding: 20px 40px;">Patterns of Enterprise Application Architecture</h1>
                 <div class="menu">
-                        <div class="menu-item">Main</div>
-                        <div class="menu-item"><a href="file:///C:/study/homework/index.html">Preface</a></div>
-                        <div class="menu-item"><a href="file:///C:/study/homework/part1.html" target="_blank">Part 1</a></div>
-                        <div class="menu-item"><a href="file:///C:/study/homework/part2.html" target="_blank">Part 2</a></div>
+                        <div class="menu-item2">MENU</div>
+                <div class="menu">
+                        <a href="file:///C:/study/homework/index.html" class="menu-item">Preface</a>
+                        <a href="file:///C:/study/homework/part1.html" target="_blank" class="menu-item">Part 1</a>
+                        <a href="file:///C:/study/homework/part2.html" target="_blank" class="menu-item">Part 2</a>
+                </div>
                 </div>
                 <div class="start">
                 <ol>
