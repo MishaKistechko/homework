@@ -38,21 +38,19 @@
                         }
                         #ribbon {
                                 text-align: center;
+                                padding: 24px;
                         }
-                        table, dl, ul, ol {
+                        ul{
                                 margin-top: 1.5em;
                                 padding: 20px;
-}
-                        #ribbon ul#menu li {
-                                display: inline-block;
-                                font-size: 1.5em;
-                                line-height: 2;
-                                border-bottom: 2px solid rgb(163,146,120);
-}
+                        }
                         a{
                                 color: #800;
                                 text-decoration: none;
                                 font-weight: normal;
+                                font-size: 1.2em;
+                                line-height: 2;
+                                /* border-bottom: 2px solid rgb(163,146,120); */
                         }
                         a:hover{
                                 cursor: pointer;
@@ -65,6 +63,12 @@
                                 font-weight: bold;
                                 color: #000;
                         }
+                        #contents li{
+                                padding-bottom: 5px;
+                                border-bottom: 1px solid  rgb(163,146,120);
+                                list-style-type: none;
+                        }
+
                 </style>
                 <div id="container">
                         <div class="left50">
@@ -143,10 +147,10 @@
                                 <div class="left50">
                                         <div id="ribbon">
                                                 <p><img src="https://www.free-css.com/assets/files/free-css-templates/preview/page71/ribbon/images/stemma.gif" alt="no"></p>
-                                                <h3><ul>
-                                                        <li>
-                                                                <a href="#Preface"><h4>Preface</h4></a>
-                                                                <ul>
+                                                <ul id="contents">
+                                                                        <li>
+                                                                                <a href="#Preface">Preface</a>
+                                                                        </li>
                                                                         <li>
                                                                                 <a href="#Who_This_Book_Is_For">Who This Book Is For</a>
                                                                         </li>
@@ -156,11 +160,9 @@
                                                                         <li>
                                                                                 <a href="#Colophon">Colophon</a>
                                                                         </li>
-                                                                </ul>
-                                                        </li>
-                                                        <li>
-                                                                <a href="#Introduction"><h4>Introduction</h4></a>
-                                                                <ul>
+                                                                        <li>
+                                                                                <a href="#Introduction">Introduction</a>
+                                                                        </li>
                                                                         <li>
                                                                                 <a href="#Architecture">Architecture</a>
                                                                         </li>
@@ -182,10 +184,7 @@
                                                                         <li>
                                                                                 <a href="#Limitations_of_These_Patterns">Limitations of These Patterns</a>
                                                                         </li>
-                                                                </ul>
-                                                        </li>
                                                 </ul>
-                                                </h3>
                                         </div>
                                 </div>
                                 <div class="right50">
