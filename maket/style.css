@@ -299,6 +299,10 @@ h1 span{
   padding-right: 30px;
 }
 
+#woman-right img{
+  width: 100%;
+}
+
 #section2-bottom{
   position: absolute;
   bottom: 70px;
@@ -727,7 +731,8 @@ h1 span{
 
 #footer-content{
   text-align: left;
-  margin-left: 74.5px;
+  padding-left: 74.5px;
+  width: 93%;
 }
 
 #text-font-size{
@@ -744,12 +749,14 @@ h1 span{
 .copyright{
   background: #00518b;
   color: white;
-  width: 100%;
   padding-bottom: 70px;
+  padding-left: 74.5px;
+  text-align: left;
+  display: block;
 }
 
 .footer-a{
-  width: 25%;
+  width: 23%;
   display: inline-block;
   float: left;
   text-decoration: none;
@@ -769,6 +776,12 @@ h1 span{
 .a-font{
   font-size: 22px;
   font-weight: 600;
+}
+
+#footer-blue{
+  background: #00518b;
+  width: 100%;
+  text-align: left;
 }
 
 
