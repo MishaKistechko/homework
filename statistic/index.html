@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>statistic</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_statistic">
+      ADD Statistic
+    </button>
+    <table class="table" >
+      <thead>
+        <tr>
+          <th id="loses" scope="col">General loses</th>
+        </tr>
+      </thead>
+    </table>
+    <table class="table" id="statistic">
+      <thead>
+        <tr>
+          <th scope="col">KIA</th>
+          <th scope="col">Tanks</th>
+          <th scope="col">airplanes</th>
+          <th scope="col">Helicopters</th>
+          <th scope="col">Guns</th>
+          <th scope="col">MLRS</th>
+          <th scope="col">Ships</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <table class="table" >
+      <thead>
+        <tr>
+          <th id="loses" scope="col">Day loses</th>
+        </tr>
+      </thead>
+    </table>
+    <table class="table" id="statisticForDay">
+      <thead>
+        <tr>
+          <th scope="col">KIA</th>
+          <th scope="col">Tanks</th>
+          <th scope="col">airplanes</th>
+          <th scope="col">Helicopters</th>
+          <th scope="col">Guns</th>
+          <th scope="col">MLRS</th>
+          <th scope="col">Ships</th>
+          <th scope="col">Data</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <div class="modal fade" id="modal_statistic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add statistic</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+            <div class="input-group mb-3 statistic">
+              <div>
+                <span class="input-group-text">KIA</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="KIA">
+              </div>
+              <div>
+                <span class="input-group-text">Tanks</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Tanks">
+              </div>
+              <div>
+                <span class="input-group-text">airplanes</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="airplanes">
+              </div>
+              <div>
+                <span class="input-group-text">Helicopters</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Helicopters">
+              </div>
+              <div>
+                <span class="input-group-text">Guns</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Guns">
+              </div>
+              <div>
+                <span class="input-group-text">MLRS</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="MLRS">
+              </div>
+              <div>
+                <span class="input-group-text">Ships</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Ships">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="addStatistic()">Add Statistic</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.8/ejs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+
+      const statistic = new Statistic();
+
+      const addStatistic = () => {
+      statistic.setData();
+      }
+    </script>
+  </body>
+</html>

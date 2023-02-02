@@ -1,0 +1,10 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+#loses {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 30px;
+}
