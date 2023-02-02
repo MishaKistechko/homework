@@ -8,11 +8,46 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_statistic">
       ADD Statistic
     </button>
+    <table class="table" >
+      <thead>
+        <tr>
+          <th id="loses" scope="col">General loses</th>
+        </tr>
+      </thead>
+    </table>
     <table class="table" id="statistic">
       <thead>
         <tr>
-          <th scope="col">quantity:</th>
-          <th scope="col">Name:</th>
+          <th scope="col">KIA</th>
+          <th scope="col">Tanks</th>
+          <th scope="col">airplanes</th>
+          <th scope="col">Helicopters</th>
+          <th scope="col">Guns</th>
+          <th scope="col">MLRS</th>
+          <th scope="col">Ships</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <table class="table" >
+      <thead>
+        <tr>
+          <th id="loses" scope="col">Day loses</th>
+        </tr>
+      </thead>
+    </table>
+    <table class="table" id="statisticForDay">
+      <thead>
+        <tr>
+          <th scope="col">KIA</th>
+          <th scope="col">Tanks</th>
+          <th scope="col">airplanes</th>
+          <th scope="col">Helicopters</th>
+          <th scope="col">Guns</th>
+          <th scope="col">MLRS</th>
+          <th scope="col">Ships</th>
+          <th scope="col">Data</th>
         </tr>
       </thead>
       <tbody>
@@ -28,16 +63,32 @@
           <div class="modal-body ">
             <div class="input-group mb-3 statistic">
               <div>
-                <span class="input-group-text">LIQUIDATED_PERSONAL</span>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="LIQUIDATED_PERSONAL">
+                <span class="input-group-text">KIA</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="KIA">
               </div>
               <div>
-                <span class="input-group-text">TANKS</span>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="TANKS">
+                <span class="input-group-text">Tanks</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Tanks">
               </div>
               <div>
-                <span class="input-group-text">ARMOURED PERSONNEL VEHICLE</span>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="ARMOURED_PERSONNEL_VEHICLE">
+                <span class="input-group-text">airplanes</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="airplanes">
+              </div>
+              <div>
+                <span class="input-group-text">Helicopters</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Helicopters">
+              </div>
+              <div>
+                <span class="input-group-text">Guns</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Guns">
+              </div>
+              <div>
+                <span class="input-group-text">MLRS</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="MLRS">
+              </div>
+              <div>
+                <span class="input-group-text">Ships</span>
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="Ships">
               </div>
             </div>
           </div>
@@ -53,13 +104,10 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
 
-      const statistic = new Statistic("statistic");
+      const statistic = new Statistic();
 
       const addStatistic = () => {
       statistic.setData();
-      const LIQUIDATED_PERSONAL = document.getElementById("LIQUIDATED_PERSONAL").value = "";
-      const TANK = document.getElementById("TANKS").value = "";
-      const ARMOURED_PERSONNEL_VEHICLE = document.getElementById("ARMOURED_PERSONNEL_VEHICLE").value = "";
       }
     </script>
   </body>

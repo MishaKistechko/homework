@@ -1,65 +1,86 @@
-const Statistic = function (parentElementId) {
+const Statistic = function () {
+  var startStatistic = [0, 0, 0, 0, 0, 0, 0];
 
-  const statisticList = JSON.parse(window.localStorage.getItem("statistic")) ||
-  [
-    {
-      "quantity": 127500,
-      "name": "LIQUIDATED PERSONAL",
-      "add": 0
-    },
-    {
-      "quantity": 3201,
-      "name": "TANKS",
-      "add": 0
-    },
-    {
-      "quantity": 6378,
-      "name": "ARMOURED PERSONNEL VEHICLE",
-      "add": 0
-    }
-  ];
-  this.tableBody = document.querySelector(`#${parentElementId} > tbody`);
+  const statisticList = JSON.parse(window.localStorage.getItem("statistic")) || [...startStatistic];
+  var statisticForDay = [...startStatistic];
+  var data = 0;
+  statisticForDay.push(`${data}.02.23`);
+  const tableStatistic = JSON.parse(window.localStorage.getItem("statisticForDay")) || [];
+
   this.statisticList = statisticList;
+  this.statisticForDay = statisticForDay;
 
-  const renderBody = () => {
+  const renderBody = (list, parentElementId) => {
+    this.tableBody = document.querySelector(`#${parentElementId} > tbody`);
     html = [];
-    statisticList.forEach((element) => {
-    element["add"] != 0 ?
-    html.push(`
-        <tr>
-          <th scope="row">(${element["add"]}) ${element["quantity"]}</th>
-          <th scope="row">${element["name"]}</th>
-        </tr>
-      `) :
+    list.forEach((element) => {
       html.push(`
-        <tr>
-          <th scope="row">${element["quantity"]}</th>
-          <th scope="row">${element["name"]}</th>
-        </tr>
+          <td scope="row">${element}</td>
       `)
     });
-    this.tableBody.innerHTML =  html.join("");
+    list === statisticList ? this.tableBody.innerHTML =  html.join("") : this.tableBody.innerHTML +=  html.join("");
   }
 
   const addStatistic = () => {
-    const LIQUIDATED_PERSONAL = document.getElementById("LIQUIDATED_PERSONAL").value;
-    statisticList[0]["quantity"] += parseInt(LIQUIDATED_PERSONAL);
-    statisticList[0]["add"] = `+${LIQUIDATED_PERSONAL}`;
+    const KIA = document.getElementById("KIA").value;
+    statisticList[0] += parseInt(KIA) || 0;
+    statisticForDay[0] = parseInt(KIA) || 0;
+    document.getElementById("KIA").value = ``;
 
-    const TANKS = document.getElementById("TANKS").value;
-    statisticList[1]["quantity"] += parseInt(TANKS);
-    statisticList[1]["add"] = `+${TANKS}`;
+    const Tanks = document.getElementById("Tanks").value;
+    statisticList[1] += parseInt(Tanks) || 0;
+    statisticForDay[1] = parseInt(Tanks) || 0;
+    document.getElementById("Tanks").value = ``;
 
-    const ARMOURED_PERSONNEL_VEHICLE = document.getElementById("ARMOURED_PERSONNEL_VEHICLE").value;
-    statisticList[2]["quantity"] += parseInt(ARMOURED_PERSONNEL_VEHICLE);
-    statisticList[2]["add"] = `+${ARMOURED_PERSONNEL_VEHICLE}`;
+    const airplanes = document.getElementById("airplanes").value;
+    statisticList[2] += parseInt(airplanes) || 0;
+    statisticForDay[2] = parseInt(airplanes) || 0;
+    document.getElementById("airplanes").value = ``;
+
+
+    const Helicopters = document.getElementById("Helicopters").value;
+    statisticList[3] += parseInt(Helicopters) || 0;
+    statisticForDay[3] = parseInt(Helicopters) || 0;
+    document.getElementById("Helicopters").value = ``;
+
+
+    const Guns = document.getElementById("Guns").value;
+    statisticList[4] += parseInt(Guns) || 0;
+    statisticForDay[4] = parseInt(Guns) || 0;
+    document.getElementById("Guns").value = ``;
+
+
+    const MLRS = document.getElementById("MLRS").value;
+    statisticList[5] += parseInt(MLRS) || 0;
+    statisticForDay[5] = parseInt(MLRS) || 0;
+    document.getElementById("MLRS").value = ``;
+
+
+    const Ships = document.getElementById("Ships").value;
+    statisticList[6] += parseInt(Ships) || 0;
+    statisticForDay[6] = parseInt(Ships) || 0;
+    document.getElementById("Ships").value = ``;
+
+    statisticForDay[7] = `${++data}.02.23`
+
+
+    tableStatistic.push([...statisticForDay]);
+
+
 
   }
 
   this.setData = () => {
     addStatistic();
      window.localStorage.setItem("statistic", JSON.stringify(statisticList));
-    renderBody();
+     window.localStorage.setItem("statisticForDay", JSON.stringify(tableStatistic));
+
+     renderBody(statisticList, "statistic");
+
+     renderBody(statisticForDay, "statisticForDay");
+
   };
-  renderBody();
+
+  renderBody(statisticList, "statistic");
+  tableStatistic.forEach((element) => renderBody(element, "statisticForDay"));
 }
