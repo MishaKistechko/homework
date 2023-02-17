@@ -55,22 +55,17 @@
        </table>`
      }
 
-     const renderBody = () => {
-      const newData = new UpDate(upDate.data);
-      const newTotalStatsTable = new RenderTable(newData.calculateTotalStat, "totalStat");
-      const newMonthsStatsTable = new RenderTable(newData.calculateMonthsStat, "monthsStat");
-    }
-
      const ShowData = function (data) {
+      const sortMonth = dataModule.calculateMonthsStat();
       this.sortIcon = (element) => {
         if (element === "Month") {
-          upDate.calculateMonthsStat.sort((a, b) => {
+          sortMonth.sort((a, b) => {
           var dateA = new Date (`${a[element].split(".")[1]}-${a[element].split(".")[0]}`);
           var dateB = new Date (`${b[element].split(".")[1]}-${b[element].split(".")[0]}`);
           return  (i % 2 === 0) ? dateA - dateB : dateB - dateA
         })
         } else {
-          upDate.calculateMonthsStat.sort((a, b) => {
+          sortMonth.sort((a, b) => {
             return (i % 2 === 0) ? a[element] - b[element] : b[element] - a[element];
             })
         }
@@ -79,7 +74,7 @@
       this.sortTable = (parentElementId, element) => {
         ++i;
         (parentElementId === `${element}monthsStat`) ? this.sortIcon(element) : "";
-        const sort = new RenderTable (upDate.calculateMonthsStat, "monthsStat");
+        const sortByKey = new RenderTable (sortMonth, "monthsStat");
         if (i % 2 === 0) {
         var tableBody = document.querySelector(`#${parentElementId}`);
         tableBody.style.transform = `rotate(360deg)`;
@@ -110,16 +105,16 @@
         const auditData = getData.find(function(e){return e == statByDay["Date"]});
         auditData === statByDay["Date"] ? console.log("eror") : data.push(statByDay);
         window.localStorage.setItem("statByDay", JSON.stringify(data));
-        renderBody();
+        data = JSON.parse(window.localStorage.getItem("statByDay"));
+        const monthsNew = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
+        const totalNew = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
       }
     renderModalWindow(data);
     }
 
-
-    const upDate = new UpDate(staticByDay);
-    const monthsStatsTable = new RenderTable(upDate.calculateMonthsStat, "monthsStat");
-    const totalStatsTable = new RenderTable(upDate.calculateTotalStat, "totalStat");
-    const show = new ShowData(upDate.data);
+    const monthsStatsTable = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
+    const totalStatsTable = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
+    const show = new ShowData(dataModule.getData());
     </script>
   </body>
 </html>

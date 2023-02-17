@@ -1,21 +1,20 @@
-const UpDate = function(data) {
-  this.data = JSON.parse(window.localStorage.getItem("statByDay")) || data;
-  this.key = Object.keys(data[0]).filter(keys => keys !== "Date");
-  this.keysNull = this.key.reduce((accum, element) => {
+const dataModule = (function () {
+  const data = JSON.parse(window.localStorage.getItem("statByDay")) || staticByDay;
+  const key = Object.keys(data[0]).filter(keys => keys !== "Date");
+  const keysNull = key.reduce((accum, element) => {
     accum[element] = 0;
     return accum
   },{})
-  this.avgKey = this.key.map((element) => (`${element}_avg`));
-  this.avgNull = this.avgKey.reduce((accum, element) => {
+  const avgKey = key.map((element) => (`${element}_avg`));
+  const avgNull = avgKey.reduce((accum, element) => {
     accum[element] = 0;
     return accum
   }, {})
-  this.totKeys = ["days", ...this.key, ...this.avgKey];
-  this.monthsKeys = ["Month", this.totKeys];
-  this.addDate = this.data.map(element => ({...element, "Date": new Date(element["Date"])}));
+  const totKeys = ["days", ...key, ...avgKey];
 
   const calculateMonthsStat = () => {
-    const sortMonthly = this.addDate.reduce((accum, element) => {
+    const addDate = data.map(element => ({...element, "Date": new Date(element["Date"])}));
+    const sortMonthly = addDate.reduce((accum, element) => {
     const monthData = `${element.Date.getMonth() + 1}.${element.Date.getFullYear()}`;
       if (!accum[monthData]) {
         accum[monthData] = [];
@@ -27,10 +26,10 @@ const UpDate = function(data) {
     const totalMonth = months.reduce((accum, month) => {
       if(!accum[month]) {
         var days = sortMonthly[month].length;
-        accum[month] = {"Month": month,"days": days, ...this.keysNull, ...this.avgNull};
+        accum[month] = {"Month": month,"days": days, ...keysNull, ...avgNull};
       }
       sortMonthly[month].forEach(day => {
-        this.key.forEach(key => {
+        key.forEach(key => {
             accum[month][key] += day[key];
             accum[month][`${key}_avg`] = Number(((accum[month][key]) / days).toFixed(2));
         })
@@ -40,22 +39,30 @@ const UpDate = function(data) {
     const tableMonths = Object.values(totalMonth);
     return tableMonths
   }
-  this.calculateMonthsStat = calculateMonthsStat();
 
 
   const calculateTotalStat = () => {
-    const total = {"days": 0,...this.keysNull, ...this.avgNull,};
+    const total = {"days": 0,...keysNull, ...avgNull,};
     const q = {...total};
-    this.calculateMonthsStat.forEach(element => {
-      this.totKeys.forEach(item => {
+    calculateMonthsStat().forEach(element => {
+      totKeys.forEach(item => {
         q[item] += element[item];
         total[item] = Number(q[item].toFixed(2));
       })
     })
     return a = [total];
   }
-  this.calculateTotalStat = calculateTotalStat();
-}
+  return {
+    getData: () => data,
+    getKey: () => key,
+    getKeysNull: () => keysNull,
+    getAvgKey: () => avgKey,
+    getAvgNull: () => avgNull,
+    getTotKeys: () => totKeys,
+    calculateMonthsStat,
+    calculateTotalStat,
+  };
+})();
 
 
 
