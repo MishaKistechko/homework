@@ -1,86 +1,64 @@
-const Statistic = function () {
-  var startStatistic = [0, 0, 0, 0, 0, 0, 0];
+const UpDate = function(data) {
+  this.data = JSON.parse(window.localStorage.getItem("statByDay")) || data;
+  this.key = Object.keys(data[0]).filter(keys => keys !== "Date");
+  this.keysNull = this.key.reduce((accum, element) => {
+    accum[element] = 0;
+    return accum
+  },{})
+  this.avgKey = this.key.map((element) => (`${element}_avg`));
+  this.avgNull = this.avgKey.reduce((accum, element) => {
+    accum[element] = 0;
+    return accum
+  }, {})
+  this.totKeys = ["days", ...this.key, ...this.avgKey];
+  this.monthsKeys = ["Month", this.totKeys];
+  this.addDate = this.data.map(element => ({...element, "Date": new Date(element["Date"])}));
 
-  const statisticList = JSON.parse(window.localStorage.getItem("statistic")) || [...startStatistic];
-  var statisticForDay = [...startStatistic];
-  var data = 0;
-  statisticForDay.push(`${data}.02.23`);
-  const tableStatistic = JSON.parse(window.localStorage.getItem("statisticForDay")) || [];
-
-  this.statisticList = statisticList;
-  this.statisticForDay = statisticForDay;
-
-  const renderBody = (list, parentElementId) => {
-    this.tableBody = document.querySelector(`#${parentElementId} > tbody`);
-    html = [];
-    list.forEach((element) => {
-      html.push(`
-          <td scope="row">${element}</td>
-      `)
-    });
-    list === statisticList ? this.tableBody.innerHTML =  html.join("") : this.tableBody.innerHTML +=  html.join("");
+  const calculateMonthsStat = () => {
+    const sortMonthly = this.addDate.reduce((accum, element) => {
+    const monthData = `${element.Date.getMonth() + 1}.${element.Date.getFullYear()}`;
+      if (!accum[monthData]) {
+        accum[monthData] = [];
+      }
+      accum[monthData].push(element)
+      return accum
+    }, {})
+    const months = Object.keys(sortMonthly);
+    const totalMonth = months.reduce((accum, month) => {
+      if(!accum[month]) {
+        var days = sortMonthly[month].length;
+        accum[month] = {"Month": month,"days": days, ...this.keysNull, ...this.avgNull};
+      }
+      sortMonthly[month].forEach(day => {
+        this.key.forEach(key => {
+            accum[month][key] += day[key];
+            accum[month][`${key}_avg`] = Number(((accum[month][key]) / days).toFixed(2));
+        })
+      })
+      return accum
+    }, {})
+    const tableMonths = Object.values(totalMonth);
+    return tableMonths
   }
-
-  const addStatistic = () => {
-    const KIA = document.getElementById("KIA").value;
-    statisticList[0] += parseInt(KIA) || 0;
-    statisticForDay[0] = parseInt(KIA) || 0;
-    document.getElementById("KIA").value = ``;
-
-    const Tanks = document.getElementById("Tanks").value;
-    statisticList[1] += parseInt(Tanks) || 0;
-    statisticForDay[1] = parseInt(Tanks) || 0;
-    document.getElementById("Tanks").value = ``;
-
-    const airplanes = document.getElementById("airplanes").value;
-    statisticList[2] += parseInt(airplanes) || 0;
-    statisticForDay[2] = parseInt(airplanes) || 0;
-    document.getElementById("airplanes").value = ``;
+  this.calculateMonthsStat = calculateMonthsStat();
 
 
-    const Helicopters = document.getElementById("Helicopters").value;
-    statisticList[3] += parseInt(Helicopters) || 0;
-    statisticForDay[3] = parseInt(Helicopters) || 0;
-    document.getElementById("Helicopters").value = ``;
-
-
-    const Guns = document.getElementById("Guns").value;
-    statisticList[4] += parseInt(Guns) || 0;
-    statisticForDay[4] = parseInt(Guns) || 0;
-    document.getElementById("Guns").value = ``;
-
-
-    const MLRS = document.getElementById("MLRS").value;
-    statisticList[5] += parseInt(MLRS) || 0;
-    statisticForDay[5] = parseInt(MLRS) || 0;
-    document.getElementById("MLRS").value = ``;
-
-
-    const Ships = document.getElementById("Ships").value;
-    statisticList[6] += parseInt(Ships) || 0;
-    statisticForDay[6] = parseInt(Ships) || 0;
-    document.getElementById("Ships").value = ``;
-
-    statisticForDay[7] = `${++data}.02.23`
-
-
-    tableStatistic.push([...statisticForDay]);
-
-
-
+  const calculateTotalStat = () => {
+    const total = {"days": 0,...this.keysNull, ...this.avgNull,};
+    const q = {...total};
+    this.calculateMonthsStat.forEach(element => {
+      this.totKeys.forEach(item => {
+        q[item] += element[item];
+        total[item] = Number(q[item].toFixed(2));
+      })
+    })
+    return a = [total];
   }
-
-  this.setData = () => {
-    addStatistic();
-     window.localStorage.setItem("statistic", JSON.stringify(statisticList));
-     window.localStorage.setItem("statisticForDay", JSON.stringify(tableStatistic));
-
-     renderBody(statisticList, "statistic");
-
-     renderBody(statisticForDay, "statisticForDay");
-
-  };
-
-  renderBody(statisticList, "statistic");
-  tableStatistic.forEach((element) => renderBody(element, "statisticForDay"));
+  this.calculateTotalStat = calculateTotalStat();
 }
+
+
+
+
+
+

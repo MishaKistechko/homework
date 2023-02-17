@@ -3,8 +3,39 @@ body{
   padding: 0;
 }
 
+button {
+  border: none;
+  font-weight: bold;
+}
+
 #loses {
   text-align: center;
   padding-top: 40px;
-  font-size: 30px;
 }
+
+button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.table {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+.buttonTable{
+  display: flex;
+}
+
+.buttonTableDiv {
+  color: silver;
+  margin-left: 10px;
+}
+
+
