@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="show.addStatByDay()">Add Statistic</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="dataModule.addStatByDay()">Add Statistic</button>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
       `<table class="table table-striped">
           <thead>
             <tr>
-              ${keys.map((key) => `<th scope="col"><button class="buttonTable"  onclick="show.sortTable('${key}${parentElementId}','${key}')">${key}<div class="buttonTableDiv" id="${key}${parentElementId}">▲<div></button></th>`).join("")}
+              ${keys.map((key) => `<th scope="col"><button class="buttonTable"  onclick="showData.sortTable('${key}${parentElementId}','${key}')">${key}<div class="buttonTableDiv" id="${key}${parentElementId}">▲<div></button></th>`).join("")}
             </tr>
           </thead>`
       this.tableBody = tableBody.innerHTML =
@@ -55,9 +55,9 @@
        </table>`
      }
 
-     const ShowData = function (data) {
+     const showData = (function () {
       const sortMonth = dataModule.calculateMonthsStat();
-      this.sortIcon = (element) => {
+      const sortIcon = (element) => {
         if (element === "Month") {
           sortMonth.sort((a, b) => {
           var dateA = new Date (`${a[element].split(".")[1]}-${a[element].split(".")[0]}`);
@@ -71,9 +71,9 @@
         }
       }
 
-      this.sortTable = (parentElementId, element) => {
+      const sortTable = (parentElementId, element) => {
         ++i;
-        (parentElementId === `${element}monthsStat`) ? this.sortIcon(element) : "";
+        (parentElementId === `${element}monthsStat`) ? sortIcon(element) : "";
         const sortByKey = new RenderTable (sortMonth, "monthsStat");
         if (i % 2 === 0) {
         var tableBody = document.querySelector(`#${parentElementId}`);
@@ -88,33 +88,21 @@
 
       const renderModalWindow = () => {
         var tableBody = document.querySelector("#modalWindow");
-        const key = Object.keys(data[0]);
+        const key = Object.keys(staticByDay[0]);
         tableBody.innerHTML = `${key.map(row => `<div>
                   <span class="input-group-text">${row}</span>
                   <${(row === "Date") ? `input type="date"` : `input type="text"`} class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="${row}">
                 </div>`)}`;
       }
 
-      this.addStatByDay = () => {
-        const startSTat = Object.keys(data[0]).reduce((accum, icon) => {
-        (icon === "Date") ? accum[icon] = document.getElementById(icon).value : accum[icon] = parseInt(document.getElementById(icon).value);
-          return accum
-        }, {})
-        const statByDay = {...startSTat};
-        const getData = data.map(date => date["Date"]);
-        const auditData = getData.find(function(e){return e == statByDay["Date"]});
-        auditData === statByDay["Date"] ? console.log("eror") : data.push(statByDay);
-        window.localStorage.setItem("statByDay", JSON.stringify(data));
-        data = JSON.parse(window.localStorage.getItem("statByDay"));
-        const monthsNew = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
-        const totalNew = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
-      }
-    renderModalWindow(data);
-    }
+    renderModalWindow();
+    return{
+      sortTable,
+    };
+    })();
 
     const monthsStatsTable = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
     const totalStatsTable = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
-    const show = new ShowData(dataModule.getData());
     </script>
   </body>
 </html>

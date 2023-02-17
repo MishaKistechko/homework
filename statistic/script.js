@@ -52,13 +52,22 @@ const dataModule = (function () {
     })
     return a = [total];
   }
+
+  const addStatByDay = () => {
+    const startSTat = Object.keys(data[0]).reduce((accum, icon) => {
+    (icon === "Date") ? accum[icon] = document.getElementById(icon).value : accum[icon] = parseInt(document.getElementById(icon).value);
+      return accum
+    }, {})
+    const statByDay = {...startSTat};
+    const getData = data.map(date => date["Date"]);
+    const auditData = getData.find(function(e){return e == statByDay["Date"]});
+    auditData === statByDay["Date"] ? console.log("eror") : data.push(statByDay);
+    window.localStorage.setItem("statByDay", JSON.stringify(data));
+    const monthsNew = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
+    const totalNew = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
+  }
   return {
-    getData: () => data,
-    getKey: () => key,
-    getKeysNull: () => keysNull,
-    getAvgKey: () => avgKey,
-    getAvgNull: () => avgNull,
-    getTotKeys: () => totKeys,
+    addStatByDay,
     calculateMonthsStat,
     calculateTotalStat,
   };
