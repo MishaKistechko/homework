@@ -1,5 +1,5 @@
 const dataModule = (function () {
-  const data = JSON.parse(window.localStorage.getItem("statByDay")) || staticByDay;
+  const data = JSON.parse(window.localStorage.getItem("statByDay")) || [];
   const key = Object.keys(data[0]).filter(keys => keys !== "Date");
   const keysNull = key.reduce((accum, element) => {
     accum[element] = 0;
@@ -36,8 +36,7 @@ const dataModule = (function () {
       })
       return accum
     }, {})
-    const tableMonths = Object.values(totalMonth);
-    return tableMonths
+    return Object.values(totalMonth);
   }
 
 
@@ -50,22 +49,14 @@ const dataModule = (function () {
         total[item] = Number(q[item].toFixed(2));
       })
     })
-    return a = [total];
+    return [total];
   }
 
-  const addStatByDay = () => {
-    const startSTat = Object.keys(data[0]).reduce((accum, icon) => {
-    (icon === "Date") ? accum[icon] = document.getElementById(icon).value : accum[icon] = parseInt(document.getElementById(icon).value);
-      return accum
-    }, {})
-    const statByDay = {...startSTat};
-    const getData = data.map(date => date["Date"]);
-    const auditData = getData.find(function(e){return e == statByDay["Date"]});
-    auditData === statByDay["Date"] ? console.log("eror") : data.push(statByDay);
+  const addStatByDay = (statByDay) => {
+    data.push(statByDay);
     window.localStorage.setItem("statByDay", JSON.stringify(data));
-    const monthsNew = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
-    const totalNew = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
   }
+
   return {
     addStatByDay,
     calculateMonthsStat,

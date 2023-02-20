@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="dataModule.addStatByDay()">Add Statistic</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="newData.addStatByDay()">Add Statistic</button>
           </div>
         </div>
       </div>
@@ -35,74 +35,93 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
 
-     var i = 0;
+    //  var i = 0;
 
-    const RenderTable = function(data, parentElementId) {
-      const keys = Object.keys(data[0]);
-      const value = data.map(column => Object.values(column));
-      var tableBody = document.querySelector(`#${parentElementId}`);
-      const name =
-      `<table class="table table-striped">
-          <thead>
-            <tr>
-              ${keys.map((key) => `<th scope="col"><button class="buttonTable"  onclick="showData.sortTable('${key}${parentElementId}','${key}')">${key}<div class="buttonTableDiv" id="${key}${parentElementId}">▲<div></button></th>`).join("")}
-            </tr>
-          </thead>`
-      this.tableBody = tableBody.innerHTML =
-          `${name}<tbody>
-            ${value.map(column => `<tr>${column.map(row => `<td>${row}</td>`).join("")}</tr>`).join("")}
-          </tbody>
-       </table>`
-     }
+    const Table = function(data, parentElementId) {
+      this.data = data;
+      this.parentElementId = parentElementId;
 
-     const showData = (function () {
-      const sortMonth = dataModule.calculateMonthsStat();
-      const sortIcon = (element) => {
-        if (element === "Month") {
-          sortMonth.sort((a, b) => {
-          var dateA = new Date (`${a[element].split(".")[1]}-${a[element].split(".")[0]}`);
-          var dateB = new Date (`${b[element].split(".")[1]}-${b[element].split(".")[0]}`);
-          return  (i % 2 === 0) ? dateA - dateB : dateB - dateA
-        })
-        } else {
-          sortMonth.sort((a, b) => {
-            return (i % 2 === 0) ? a[element] - b[element] : b[element] - a[element];
-            })
+      const nameRemder = () => {
+        const name = document.querySelector(`#${this.parentElementId}`);
+        name.innerHTML =
+        `<table class="table table-striped">
+            <thead>
+              <tr>
+                ${Object.keys(data[0]).map((key) => `<th scope="col"><button class="buttonTable"  onclick="showData.sortTable('${key}${parentElementId}','${key}')">${key}<div class="buttonTableDiv" id="${key}${parentElementId}">▲<div></button></th>`).join("")}
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>`
         }
-      }
 
-      const sortTable = (parentElementId, element) => {
-        ++i;
-        (parentElementId === `${element}monthsStat`) ? sortIcon(element) : "";
-        const sortByKey = new RenderTable (sortMonth, "monthsStat");
-        if (i % 2 === 0) {
-        var tableBody = document.querySelector(`#${parentElementId}`);
-        tableBody.style.transform = `rotate(360deg)`;
-        tableBody.style.color = 'black';
-        } else {
-          var tableBody = document.querySelector(`#${parentElementId}`);
-          tableBody.style.transform = `rotate(180deg)`;
-          tableBody.style.color = 'black';
-        }
+      this.valueRender = (data, parentElementId) => {
+        var tableBody = document.querySelector(`#${this.parentElementId} >table tbody`);
+        tableBody.innerHTML = data.map(column => `<tr>${Object.values(column).map(row => `<td>${row}</td>`).join("")}</tr>`).join("");
       }
+      nameRemder();
+    }
 
-      const renderModalWindow = () => {
-        var tableBody = document.querySelector("#modalWindow");
-        const key = Object.keys(staticByDay[0]);
-        tableBody.innerHTML = `${key.map(row => `<div>
+      // const sortMonth = dataModule.calculateMonthsStat();
+      // const sortIcon = (element) => {
+      //   if (element === "Month") {
+      //     sortMonth.sort((a, b) => {
+      //     var dateA = new Date (`${a[element].split(".")[1]}-${a[element].split(".")[0]}`);
+      //     var dateB = new Date (`${b[element].split(".")[1]}-${b[element].split(".")[0]}`);
+      //     return  (i % 2 === 0) ? dateA - dateB : dateB - dateA
+      //   })
+      //   } else {
+      //     sortMonth.sort((a, b) => {
+      //       return (i % 2 === 0) ? a[element] - b[element] : b[element] - a[element];
+      //       })
+      //   }
+      // }
+
+      // const sortTable = (parentElementId, element) => {
+      //   ++i;
+      //   (parentElementId === `${element}monthsStat`) ? sortIcon(element) : "";
+      //   const sortByKey = new Table (sortMonth, "monthsStat");
+      //   if (i % 2 === 0) {
+      //   var tableBody = document.querySelector(`#${parentElementId}`);
+      //   tableBody.style.transform = `rotate(360deg)`;
+      //   tableBody.style.color = 'black';
+      //   } else {
+      //     var tableBody = document.querySelector(`#${parentElementId}`);
+      //     tableBody.style.transform = `rotate(180deg)`;
+      //     tableBody.style.color = 'black';
+      //   }
+      // }
+
+      const RenderModalWindow = function() {
+        const modal = () => {
+          var tableBody = document.querySelector("#modalWindow");
+          tableBody.innerHTML = `${Object.keys(staticByDay[0]).map(row => `<div>
                   <span class="input-group-text">${row}</span>
-                  <${(row === "Date") ? `input type="date"` : `input type="text"`} class="form-control" aria-label="Dollar amount (with dot and two decimal places)" id="${row}">
+                  <${(row === "Date") ? `input type="date"` : `input type="text"`} class="form-control" id="${row}">
                 </div>`)}`;
+        }
+
+         this.addStatByDay = () => {
+          const startSTat = Object.keys(staticByDay[0]).reduce((accum, icon) => {
+          (icon === "Date") ? accum[icon] = document.getElementById(icon).value : accum[icon] = parseInt(document.getElementById(icon).value);
+            return accum
+          }, {})
+          dataModule.addStatByDay(startSTat);
+          monthsStatsTable.valueRender(dataModule.calculateMonthsStat(), "monthsStat");
+          totalStatsTable.valueRender(dataModule.calculateTotalStat(), "totalStat");
+
+         }
+        modal();
       }
 
-    renderModalWindow();
-    return{
-      sortTable,
-    };
-    })();
 
-    const monthsStatsTable = new RenderTable(dataModule.calculateMonthsStat(), "monthsStat");
-    const totalStatsTable = new RenderTable(dataModule.calculateTotalStat(), "totalStat");
+    const newData = new RenderModalWindow();
+
+    const monthsStatsTable = new Table(dataModule.calculateMonthsStat(), "monthsStat");
+    const totalStatsTable = new Table(dataModule.calculateTotalStat(), "totalStat");
+    monthsStatsTable.valueRender(dataModule.calculateMonthsStat(), "monthsStat");
+    totalStatsTable.valueRender(dataModule.calculateTotalStat(), "totalStat");
+
     </script>
   </body>
 </html>
