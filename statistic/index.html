@@ -35,7 +35,6 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
 
-    //  var i = 0;
 
     const Table = function(data, parentElementId) {
       this.data = data;
@@ -47,7 +46,7 @@
         `<table class="table table-striped">
             <thead>
               <tr>
-                ${Object.keys(data[0]).map((key) => `<th scope="col"><button class="buttonTable"  onclick="showData.sortTable('${key}${parentElementId}','${key}')">${key}<div class="buttonTableDiv" id="${key}${parentElementId}">▲<div></button></th>`).join("")}
+                ${Object.keys(data[0]).map((key) => `<th scope="col"><button id="${key}">${key}&uarr;</button></th>`).join("")}
               </tr>
             </thead>
             <tbody>
@@ -55,42 +54,39 @@
         </table>`
         }
 
-      this.valueRender = (data, parentElementId) => {
+        const buttonGroup = document.getElementById(parentElementId);
+        let audit = false;
+        const sortTable = (e) => {
+          console.log(e.target.id)
+          if (e.target.id === "Month") {
+            data.sort((a, b) => {
+              var dateA = new Date (`${a[e.target.id].split(".")[1]}-${a[e.target.id].split(".")[0]}`);
+              var dateB = new Date (`${b[e.target.id].split(".")[1]}-${b[e.target.id].split(".")[0]}`);
+            return  (audit === false) ? dateA - dateB : dateB - dateA
+        })
+        } else {
+            data.sort((a, b) => {
+            return (audit === false) ? a[e.target.id] - b[e.target.id] : b[e.target.id] - a[e.target.id];
+            })
+         }
+         if (audit === true && e.target.id) {
+           e.target.innerHTML = `${e.target.id}&darr;`;
+        } else if (e.target.id){
+           e.target.innerHTML = `${e.target.id}&uarr;`;
+        }
+        audit === true ? audit = false : audit = true;
+         valueRender(data, parentElementId);
+        }
+
+        buttonGroup.addEventListener('click', sortTable);
+
+      const valueRender = (data, parentElementId) => {
         var tableBody = document.querySelector(`#${this.parentElementId} >table tbody`);
         tableBody.innerHTML = data.map(column => `<tr>${Object.values(column).map(row => `<td>${row}</td>`).join("")}</tr>`).join("");
       }
       nameRemder();
+      valueRender(data, parentElementId);
     }
-
-      // const sortMonth = dataModule.calculateMonthsStat();
-      // const sortIcon = (element) => {
-      //   if (element === "Month") {
-      //     sortMonth.sort((a, b) => {
-      //     var dateA = new Date (`${a[element].split(".")[1]}-${a[element].split(".")[0]}`);
-      //     var dateB = new Date (`${b[element].split(".")[1]}-${b[element].split(".")[0]}`);
-      //     return  (i % 2 === 0) ? dateA - dateB : dateB - dateA
-      //   })
-      //   } else {
-      //     sortMonth.sort((a, b) => {
-      //       return (i % 2 === 0) ? a[element] - b[element] : b[element] - a[element];
-      //       })
-      //   }
-      // }
-
-      // const sortTable = (parentElementId, element) => {
-      //   ++i;
-      //   (parentElementId === `${element}monthsStat`) ? sortIcon(element) : "";
-      //   const sortByKey = new Table (sortMonth, "monthsStat");
-      //   if (i % 2 === 0) {
-      //   var tableBody = document.querySelector(`#${parentElementId}`);
-      //   tableBody.style.transform = `rotate(360deg)`;
-      //   tableBody.style.color = 'black';
-      //   } else {
-      //     var tableBody = document.querySelector(`#${parentElementId}`);
-      //     tableBody.style.transform = `rotate(180deg)`;
-      //     tableBody.style.color = 'black';
-      //   }
-      // }
 
       const RenderModalWindow = function() {
         const modal = () => {
@@ -107,21 +103,16 @@
             return accum
           }, {})
           dataModule.addStatByDay(startSTat);
-          monthsStatsTable.valueRender(dataModule.calculateMonthsStat(), "monthsStat");
-          totalStatsTable.valueRender(dataModule.calculateTotalStat(), "totalStat");
-
+          const monthsStatsTable = new Table(dataModule.calculateMonthsStat(), "monthsStat");
+          const totalStatsTable = new Table(dataModule.calculateTotalStat(), "totalStat");
          }
         modal();
       }
-
 
     const newData = new RenderModalWindow();
 
     const monthsStatsTable = new Table(dataModule.calculateMonthsStat(), "monthsStat");
     const totalStatsTable = new Table(dataModule.calculateTotalStat(), "totalStat");
-    monthsStatsTable.valueRender(dataModule.calculateMonthsStat(), "monthsStat");
-    totalStatsTable.valueRender(dataModule.calculateTotalStat(), "totalStat");
-
     </script>
   </body>
 </html>
