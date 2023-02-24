@@ -53,6 +53,18 @@ const dataModule = (function () {
   }
 
   const addStatByDay = (statByDay) => {
+    const newData = new Date();
+    const addDate = `${newData.getFullYear()}-0${newData.getMonth() + 1}-${newData.getDate()}`;
+    const auditDate = (data.map(element => element["Date"])).find(date => date === statByDay["Date"]);
+    const filterValue = Object.values(statByDay).filter(key => key != addDate);
+    if ((statByDay["Date"] != addDate) || (auditDate != undefined) || (filterValue.length != key.length)) {
+        throw {message: "Date Already exists"}
+    }
+  filterValue.forEach(value => {
+      if ((value === NaN) || (value < 0) || (value != parseInt(value))) {
+          throw {message: "Date Already exists"}
+      }
+    })
     data.push(statByDay);
     window.localStorage.setItem("statByDay", JSON.stringify(data));
   }
