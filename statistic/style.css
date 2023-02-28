@@ -38,4 +38,13 @@ tbody tr:hover {
   margin-left: 10px;
 }
 
+.statistic div {
+  display: block;
+  width: 100%;
+}
+
+.statistic input {
+  width: 30%;
+}
+
 

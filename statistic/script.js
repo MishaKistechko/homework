@@ -11,6 +11,7 @@ const dataModule = (function () {
     return accum
   }, {})
   const totKeys = ["days", ...key, ...avgKey];
+  const fields = [...key, ...avgKey];
 
   const calculateMonthsStat = () => {
     const addDate = data.map(element => ({...element, "Date": new Date(element["Date"])}));
@@ -52,28 +53,79 @@ const dataModule = (function () {
     return [total];
   }
 
-  const addStatByDay = (statByDay) => {
+  const auditValue = (statByDay) => {
+    const wrong = [];
     const newData = new Date();
     const addDate = `${newData.getFullYear()}-0${newData.getMonth() + 1}-${newData.getDate()}`;
-    const auditDate = (data.map(element => element["Date"])).find(date => date === statByDay["Date"]);
-    const filterValue = Object.values(statByDay).filter(key => key != addDate);
-    if ((statByDay["Date"] != addDate) || (auditDate != undefined) || (filterValue.length != key.length)) {
-        throw {message: "Date Already exists"}
+    const auditDate = data.find(row => row["Date"] === statByDay["Date"])
+    if (auditDate) {
+      wrong.push({message: "Date Already exists", field: "Date-input"});
     }
-  filterValue.forEach(value => {
-      if ((value === NaN) || (value < 0) || (value != parseInt(value))) {
-          throw {message: "Date Already exists"}
+    if (addDate < statByDay["Date"]) {
+      wrong.push({message: "Date is in the future", field: "Date-input"});
+    }
+    if (!statByDay["Date"]) {
+      wrong.push({message: "Data is not filled", field: "Date-input"});
+    }
+    key.forEach(field => {
+      if (statByDay[field] !== statByDay["Date"]) {
+        if (statByDay[field] < 0) {
+          wrong.push({message: "Data is negative", field: `${field}-input`});
+        }
+        if (statByDay[field] !== parseInt(statByDay[field])) {
+          wrong.push({message: "Data is not parseInt", field: `${field}-input`});
+        }
+        if (statByDay[field] === undefined) {
+          wrong.push({message: "Data is not filled", field: `${field}-input`});
+        }
       }
     })
+    return wrong
+  }
+
+  const addStatByDay = statByDay => {
+    if (auditValue(statByDay).length !== 0) {
+      throw auditValue(statByDay);
+    }
     data.push(statByDay);
     window.localStorage.setItem("statByDay", JSON.stringify(data));
   }
 
-  return {
-    addStatByDay,
-    calculateMonthsStat,
-    calculateTotalStat,
-  };
+  const createDataForGraph = () => {
+    const labels = [];
+    calculateMonthsStat().forEach(month => {labels.push(month["Month"]);})
+
+    const dataChart = fields.reduce((accum, field) => {
+      accum[field] = [];
+      calculateMonthsStat().forEach (month => {
+        accum[field].push(month[field]);
+      })
+      return accum
+    },[])
+
+    const dataSet = [];
+    fields.forEach(field => {
+      dataSet.push({
+        label: field,
+        data: dataChart[field],
+        borderWidth: 1
+      })
+    });
+
+    const dataForGraph = {
+      labels: labels,
+      datasets: dataSet
+    };
+
+  return dataForGraph
+  }
+
+    return {
+      addStatByDay,
+      calculateMonthsStat,
+      calculateTotalStat,
+      createDataForGraph,
+    };
 })();
 
 
